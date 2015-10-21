@@ -2,7 +2,7 @@
 
 int main(int argc, char * arg[])
 {
-	CMyGame * pGame = new CMyGame();
+	MyGame * pGame = new MyGame();
 
 	pGame->init();
 	pGame->run();

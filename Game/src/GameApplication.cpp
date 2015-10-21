@@ -1,16 +1,16 @@
 #include "GameApplication.h"
 
-CGameApplication::CGameApplication()
+GameApplication::GameApplication()
 {
 
 }
 
-CGameApplication::~CGameApplication()
+GameApplication::~GameApplication()
 {
 	destroy();
 }
 
-bool CGameApplication::init()
+bool GameApplication::init()
 {
 	ChangeWorkingDirectory();
 	//Controls the game loop
@@ -63,17 +63,17 @@ bool CGameApplication::init()
 	return true;
 }
 
-void CGameApplication::update()
+void GameApplication::update()
 {
 
 }
 
-void CGameApplication::render()
+void GameApplication::render()
 {
 
 }
 
-void CGameApplication::destroy()
+void GameApplication::destroy()
 {
 	// clean up, reverse order!!!
 	SDL_GL_DeleteContext(m_glcontext);
@@ -83,7 +83,7 @@ void CGameApplication::destroy()
 	SDL_Quit();
 }
 
-void CGameApplication::run()
+void GameApplication::run()
 {
 	SDL_Event event;
 	//Game Loop

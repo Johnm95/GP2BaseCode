@@ -6,6 +6,8 @@
 #include <sstream>
 #include <fstream>
 #include <vector>
+#include <memory>
+#include <map>
 
 using namespace std;
 

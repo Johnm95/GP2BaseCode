@@ -15,7 +15,7 @@ find_package(GLEW REQUIRED)
 find_package(GLM REQUIRED)
 
 add_subdirectory(Game)
-add_executable(GP2BaseCode src/main.cpp)
+add_executable(GP2BaseCode src/main.cpp src/MyGame.cpp include/MyGame.h)
 include_directories(GP2BaseCode Game/include/ include/ ${OPENGL_INCLUDE_DIRS} ${SDL2_INCLUDE_DIR} ${GLEW_INCLUDE_DIRS} ${GLM_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIR} ${SDL2_TTF_INCLUDE_DIR} ${FBX_INCLUDE_DIR})
 
 target_link_libraries (GP2BaseCode Game)

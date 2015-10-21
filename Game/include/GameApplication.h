@@ -5,11 +5,11 @@
 #include "FileSystem.h"
 #include "Graphics.h"
 
-class CGameApplication
+class GameApplication
 {
 public:
-	CGameApplication();
-	virtual ~CGameApplication();
+	GameApplication();
+	virtual ~GameApplication();
 
 	virtual bool init();
 	virtual void update();

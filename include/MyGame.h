@@ -3,10 +3,10 @@
 
 #include "GameApplication.h"
 
-class CMyGame:public CGameApplication
+class MyGame:public GameApplication
 {
 public:
-	CMyGame();
-	~CMyGame();
+	MyGame();
+	~MyGame();
 };
 #endif

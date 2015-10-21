@@ -1,11 +1,11 @@
 #include "MyGame.h"
 
-CMyGame::CMyGame()
+MyGame::MyGame()
 {
 
 }
 
-CMyGame::~CMyGame()
+MyGame::~MyGame()
 {
 
 }

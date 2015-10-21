@@ -1,39 +1,31 @@
 #ifndef _GAMEOBJECT_H
 #define _GAMEOBJECT_H
 
-#include <vector>
-#include <map>
-#include <string>
-#include <memory>
+#include "Common.h"
+
+#include "Components/Component.h"
 
 using namespace std;
-
-class IComponent;
 
 class GameObject
 {
 public:
 	typedef shared_ptr<GameObject> GameObjectSharedPtr;
 	typedef vector<GameObjectSharedPtr> ChildGameObjects;
-
-	//move this to components
-	typedef shared_ptr<IComponent> ComponentSharedPtr;
-	typedef map<string, IComponent> Components;
+	typedef map<string, IComponent::ComponentSharedPtr> Components;
 
 	GameObject();
 	~GameObject();
 
 	void addChild(GameObjectSharedPtr Child);
-	void addComponent(ComponentSharedPtr Component);
+	void addComponent(Component::ComponentSharedPtr Component);
 
-	ComponentSharedPtr getComponent(const string &name);
+	Component::ComponentSharedPtr getComponent(const string &type);
 	GameObjectSharedPtr getChild(int index);
-	int getNumberOfChildren()
-	{
-		m_Children.size();
-	};
+	int getNumberOfChildren();
 
 private:
+	string m_Name;
 	ChildGameObjects m_Children;
 	Components m_Components;
 };
