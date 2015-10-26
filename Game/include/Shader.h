@@ -17,4 +17,13 @@ bool checkForCompilerErrors(GLuint shaderProgram);
 
 bool checkForLinkErrors(GLuint program);
 
+class Shader{
+public:
+  Shader();
+  ~Shader();
+  
+private:
+  GLuint m_Program;
+}
+
 #endif

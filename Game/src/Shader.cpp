@@ -81,3 +81,13 @@ bool checkForLinkErrors(GLuint program)
   }
   return false;
 }
+
+Shader::Shader()
+{
+  m_Program=0;
+}
+
+Shader::~Shader()
+{
+  glDeleteProgram(program);
+}
