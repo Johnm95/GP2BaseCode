@@ -28,7 +28,7 @@ vec4 ambientLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 void initScene()
 {
 
-	string modelPath = ASSET_PATH + MODEL_PATH + "/armoredrecon.fbx";
+	string modelPath = ASSET_PATH + MODEL_PATH + "/utah-teapot.fbx";
 	loadFBXFromFile(modelPath, &currentMesh);
 	//Generate Vertex Array
 	glGenVertexArrays(1, &VAO);
@@ -94,7 +94,7 @@ void update()
 {
 	projMatrix = perspective(45.0f, 640.0f / 480.0f, 0.1f, 100.0f);
 
-	viewMatrix = lookAt(vec3(0.0f, 0.0f, 20.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
+	viewMatrix = lookAt(vec3(0.0f, 20.0f, 50.0f), vec3(0.0f, 0.0f, 0.0f), vec3(0.0f, 1.0f, 0.0f));
 
 	worldMatrix = translate(mat4(1.0f), vec3(0.0f, 0.0f, 0.0f));
 
