@@ -17,13 +17,20 @@ bool checkForCompilerErrors(GLuint shaderProgram);
 
 bool checkForLinkErrors(GLuint program);
 
-class Shader{
+class Shader
+{
 public:
-  Shader();
-  ~Shader();
-  
+	Shader();
+	~Shader();
+
+	void setVertexShader(GLuint shader);
+	void setFragmentShader(GLuint shader);
+
+	bool link();
 private:
-  GLuint m_Program;
-}
+	GLuint m_ShaderProgram;
+	GLuint m_VertexShader;
+	GLuint m_FragmentShader;
+};
 
 #endif

@@ -36,5 +36,5 @@ GameObject::GameObjectSharedPtr GameObject::getChild(int index)
 
 int GameObject::getNumberOfChildren()
 {
-	m_Children.size();
+	return m_Children.size();
 };
