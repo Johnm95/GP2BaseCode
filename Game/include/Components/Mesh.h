@@ -3,7 +3,7 @@
 
 #include "Common.h"
 #include "Component.h"
-#include "Mesh.h"
+#include "Vertices.h"
 
 class Mesh:public Component
 {

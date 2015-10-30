@@ -13,6 +13,7 @@ public:
 	typedef shared_ptr<GameObject> GameObjectSharedPtr;
 	typedef vector<GameObjectSharedPtr> ChildGameObjects;
 	typedef map<string, IComponent::ComponentSharedPtr> Components;
+	typedef vector<IComponent::ComponentSharedPtr> ComponentList;
 
 	GameObject();
 	~GameObject();
@@ -24,10 +25,17 @@ public:
 	GameObjectSharedPtr getChild(int index);
 	int getNumberOfChildren();
 
+	void onUpdate();
+	void onPreRender();
+	void onRender();
+	void onPostRender();
+	void onInit();
+
 private:
 	string m_Name;
 	ChildGameObjects m_Children;
 	Components m_Components;
+	ComponentList m_ComponentList;
 };
 
 #endif

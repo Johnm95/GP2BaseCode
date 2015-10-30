@@ -9,7 +9,7 @@ class Transform:public Component
 public:
   Transform()
   {
-    m_Name="Transform";
+    m_Type="Transform";
     m_Position=vec3(0.0f,0.0f,0.0f);
     m_Rotation=vec3(0.0f,0.0f,0.0f);
     m_Scale=vec3(1.0f,1.0f,1.0f);
@@ -43,7 +43,7 @@ public:
 
   mat4& getModelMatrix()
   {
-    return m_Model;
+    return m_ModelMatrix;
   };
 
 private:

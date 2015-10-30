@@ -60,22 +60,35 @@ bool GameApplication::init()
 	//Set our viewport
 	setViewport(640, 480);
 
+	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
+	{
+		(*it)->onInit();
+	}
 	return true;
 }
 
 void GameApplication::update()
 {
-
+	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
+	{
+		(*it)->onUpdate();
+	}
 }
 
 void GameApplication::render()
 {
-
+	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
+	{
+		(*it)->onPreRender();
+		(*it)->onRender();
+		(*it)->onPostRender();
+	}
 }
 
 void GameApplication::destroy()
 {
 	// clean up, reverse order!!!
+	m_GameObjects.clear(); 
 	SDL_GL_DeleteContext(m_glcontext);
 	SDL_DestroyWindow(m_pWindow);
 	IMG_Quit();

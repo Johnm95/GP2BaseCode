@@ -4,6 +4,7 @@
 #include "Common.h"
 #include "FileSystem.h"
 #include "Graphics.h"
+#include "GameObject.h"
 
 class GameApplication
 {
@@ -20,6 +21,7 @@ private:
 	SDL_Window * m_pWindow;
 	SDL_GLContext m_glcontext;
 	bool m_bIsRunning;
+	vector<GameObject::GameObjectSharedPtr> m_GameObjects;
 
 };
 #endif

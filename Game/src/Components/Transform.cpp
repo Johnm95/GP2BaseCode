@@ -10,5 +10,5 @@ void Transform::onUpdate()
   rotate(mat4(1.0f),m_Rotation.y,vec3(0.0f,1.0f,0.0f))*
   rotate(mat4(1.0f),m_Rotation.z,vec3(0.0f,0.0f,1.0f));
 
-  m_Model=m_ScaleMatrix*m_RotationalMatrix*m_TranlationMatrix;
+  m_ModelMatrix=m_ScaleMatrix*m_RotationalMatrix*m_TranlationMatrix;
 }

@@ -36,7 +36,7 @@ public:
 	virtual void onRender(){};
 	virtual void onPostRender(){};
 	virtual void onInit(){};
-private:
+protected:
 	string m_Type;
 };
 #endif

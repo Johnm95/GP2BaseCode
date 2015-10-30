@@ -2,7 +2,7 @@
 #define FBXLoader_H
 
 #include "Common.h"
-#include "Mesh.h"
+#include "MeshData.h"
 #include "Vertices.h"
 #include <fbxsdk.h>
 
