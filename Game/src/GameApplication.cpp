@@ -59,12 +59,17 @@ bool GameApplication::init()
 	initOpenGL();
 	//Set our viewport
 	setViewport(640, 480);
+	initScene();
 
+	return true;
+}
+
+void GameApplication::initScene()
+{
 	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
 	{
 		(*it)->onInit();
 	}
-	return true;
 }
 
 void GameApplication::update()
@@ -77,6 +82,12 @@ void GameApplication::update()
 
 void GameApplication::render()
 {
+
+	//Set the clear colour(background)
+	glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
+	//clear the colour and depth buffer
+	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
 	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
 	{
 		(*it)->onPreRender();
@@ -88,7 +99,7 @@ void GameApplication::render()
 void GameApplication::destroy()
 {
 	// clean up, reverse order!!!
-	m_GameObjects.clear(); 
+	m_GameObjects.clear();
 	SDL_GL_DeleteContext(m_glcontext);
 	SDL_DestroyWindow(m_pWindow);
 	IMG_Quit();

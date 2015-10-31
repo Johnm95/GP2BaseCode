@@ -5,6 +5,7 @@
 #include "FileSystem.h"
 #include "Graphics.h"
 #include "GameObject.h"
+#include "Components/Components.h"
 
 class GameApplication
 {
@@ -13,11 +14,13 @@ public:
 	virtual ~GameApplication();
 
 	virtual bool init();
+	virtual void initScene();
 	virtual void update();
 	virtual void render();
 	virtual void destroy();
+
 	void run();
-private:
+protected:
 	SDL_Window * m_pWindow;
 	SDL_GLContext m_glcontext;
 	bool m_bIsRunning;

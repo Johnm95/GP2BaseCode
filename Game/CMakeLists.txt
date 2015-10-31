@@ -15,7 +15,7 @@ find_package(FBX REQUIRED)
 add_library(Game STATIC src/Graphics.cpp src/Shader.cpp src/Texture.cpp src/FBXLoader.cpp src/FileSystem.cpp src/GameApplication.cpp src/GameObject.cpp src/Components/Material.cpp src/Components/Transform.cpp
   src/Components/Mesh.cpp
 include/Common.h include/FBXLoader.h include/Graphics.h include/Shader.h include/Vertices.h include/Texture.h include/MeshData.h include/FileSystem.h include/GameApplication.h include/GameObject.h
-include/Components/Component.h include/Components/Material.h include/Components/Transform.h include/Components/Mesh.h)
+include/Components/Component.h include/Components/Material.h include/Components/Transform.h include/Components/Mesh.h include/Components/Components.h)
 
 include_directories(Game include/ ${OPENGL_INCLUDE_DIRS} ${SDL2_INCLUDE_DIR} ${GLEW_INCLUDE_DIRS} ${GLM_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIR} ${SDL2_TTF_INCLUDE_DIR} ${FBX_INCLUDE_DIR})
 # create the program
