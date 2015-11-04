@@ -66,6 +66,12 @@ bool GameApplication::init()
 
 void GameApplication::initScene()
 {
+	m_MainCamera=shared_ptr<GameObject>(new GameObject);
+	shared_ptr<Transform> t=shared_ptr<Transform>(new Transform);
+	t->setPosition(vec3(0.0f,0.0f,10.0f));
+	m_MainCamera->addComponent(t);
+
+
 	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
 	{
 		(*it)->onInit();
@@ -80,6 +86,25 @@ void GameApplication::update()
 	}
 }
 
+void GameApplication::render(GameObject::GameObjectSharedPtr gObj)
+{
+
+	gObj->onPreRender();
+	//grab current material
+	//grab shader
+	//grab camera
+	//grab transform
+	//send values to shader
+	gObj->onRender();
+
+	gObj->onPostRender();
+	//go through children
+	for (int i=0;i<gObj->getNumberOfChildren();i++)
+	{
+		render(gObj->getChild(i));
+	}
+}
+
 void GameApplication::render()
 {
 
@@ -90,9 +115,7 @@ void GameApplication::render()
 
 	for (vector<GameObject::GameObjectSharedPtr>::iterator it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
 	{
-		(*it)->onPreRender();
-		(*it)->onRender();
-		(*it)->onPostRender();
+		render((*it));
 	}
 }
 

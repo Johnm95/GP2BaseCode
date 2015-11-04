@@ -3,6 +3,7 @@
 
 #include "Common.h"
 #include "Component.h"
+#include "Shader.h"
 
 class Material:public Component
 {
@@ -27,10 +28,20 @@ public:
     m_SpecularColour=colour;
   };
 
-  void setSpecularPoowe(float power)
+  void setSpecularPower(float power)
   {
     m_SpecularPower=power;
   };
+
+  void setShader(shared_ptr<Shader> shader)
+  {
+    m_pShader=shader;
+  };
+
+  shared_ptr<Shader> getShader()
+  {
+    return m_pShader;
+  }
 
 protected:
   virtual void bind();
@@ -39,6 +50,7 @@ protected:
   vec4 m_DiffuseColour;
   vec4 m_SpecularColour;
   float m_SpecularPower;
+  shared_ptr<Shader> m_pShader;
 };
 
 #endif

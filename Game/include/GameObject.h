@@ -31,11 +31,17 @@ public:
 	void onPostRender();
 	void onInit();
 
+	GameObject * getParent()
+	{
+		return m_pParent;
+	};
+
 private:
 	string m_Name;
 	ChildGameObjects m_Children;
 	Components m_Components;
 	ComponentList m_ComponentList;
+	GameObject * m_pParent;
 };
 
 #endif

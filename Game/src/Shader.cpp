@@ -106,6 +106,15 @@ void Shader::setFragmentShader(GLuint shader)
 	m_FragmentShader = shader;
 }
 
+void Shader::loadShaderFromFiles(const string& vsFilename,const string& fsFilename)
+{
+  GLuint vertexShader=loadShaderFromFile(vsFilename,VERTEX_SHADER);
+  setVertexShader(vertexShader);
+
+  GLuint fragmentShader=loadShaderFromFile(fsFilename,FRAGMENT_SHADER);
+  setFragmentShader(fragmentShader);
+}
+
 bool Shader::link()
 {
 	if (m_VertexShader == 0 || m_FragmentShader == 0)
@@ -135,4 +144,44 @@ bool Shader::link()
 	glDeleteShader(m_FragmentShader);
 	return true;
 
+}
+
+GLint Shader::getUniformLocation(const string& name)
+{
+  return glGetUniformLocation(m_ShaderProgram,name.c_str());
+}
+
+void Shader::setUniform1i(GLint uniformLocation, int value)
+{
+  glUniform1i(uniformLocation,value);
+}
+
+void Shader::setUniform1f(GLint uniformLocation, float value)
+{
+  glUniform1f(uniformLocation,value);
+}
+
+void Shader::setUniform2fv(GLint uniformLocation,vec2 &value)
+{
+  glUniform2fv(uniformLocation,1,value_ptr(value));
+}
+
+void Shader::setUniform3fv(GLint uniformLocation,vec3 &value)
+{
+  glUniform3fv(uniformLocation,1,value_ptr(value));
+}
+
+void Shader::setUniform4fv(GLint uniformLocation,vec4 &value)
+{
+  glUniform4fv(uniformLocation,1,value_ptr(value));
+}
+
+void setUniformMatrix3f(GLint uniformLocation,mat3 &value)
+{
+  glUniformMatrix3fv(uniformLocation,1,GL_FALSE,value_ptr(value));
+}
+
+void setUniformMatrix4f(GLint uniformLocation,mat4 &value)
+{
+  glUniformMatrix4fv(uniformLocation,1,GL_FALSE,value_ptr(value));
 }

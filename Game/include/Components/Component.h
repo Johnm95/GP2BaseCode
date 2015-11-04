@@ -2,7 +2,8 @@
 #define _COMPONENT_H
 
 #include "Common.h"
-#include "GameObject.h"
+
+class GameObject;
 
 class IComponent
 {
@@ -18,7 +19,7 @@ public:
 	virtual void onRender()=0;
 	virtual void onPostRender()=0;
 	virtual void onInit()=0;
-	virtual void setOwner(shared_ptr<GameObject> pOwner)=0;
+	virtual void setOwner(GameObject * pOwner)=0;
 };
 
 class Component:public IComponent
@@ -37,12 +38,12 @@ public:
 	virtual void onRender(){};
 	virtual void onPostRender(){};
 	virtual void onInit(){};
-	void setOwner(shared_ptr<GameObject> pOwner)
+	void setOwner(GameObject * pOwner)
 	{
 		m_pOwner=pOwner;
 	};
 protected:
 	string m_Type;
-	shared_ptr<GameObject> m_pOwner;
+	GameObject * m_pOwner;
 };
 #endif

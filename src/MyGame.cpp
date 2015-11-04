@@ -30,7 +30,7 @@ Vertex verts[] = {
 
 };
 
-GLuint indices[] = {
+int indices[] = {
 	//front
 	0, 1, 2,
 	0, 3, 2,
@@ -70,7 +70,23 @@ void MyGame::initScene()
 {
   shared_ptr<GameObject> pObj(new GameObject);
   pObj->addComponent(shared_ptr<Transform>(new Transform));
+
+	shared_ptr<Mesh> pMesh=shared_ptr<Mesh>(new Mesh);
+	pMesh->init(verts,8,indices,36);
+	pObj->addComponent(pMesh);
+
+	shared_ptr<Shader> pShader=shared_ptr<Shader>(new Shader);
+	string vsFilename=ASSET_PATH+SHADER_PATH+"/simpleVS.glsl";
+	string fsFilename=ASSET_PATH+SHADER_PATH+"/simpleFS.glsl";
+	pShader->loadShaderFromFiles(vsFilename,fsFilename);
+	pShader->link();
+
+	shared_ptr<Material> pMaterial=shared_ptr<Material>(new Material);
+	pMaterial->setShader(pShader);
+	pObj->addComponent(pMaterial);
+
+
   m_GameObjects.push_back(pObj);
-  
+
   GameApplication::initScene();
 }

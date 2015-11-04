@@ -4,6 +4,7 @@
 GameObject::GameObject()
 {
 	m_Name="GameObject";
+	m_pParent=NULL;
 	m_Children.clear();
 	m_Components.clear();
 	m_ComponentList.clear();
@@ -18,6 +19,7 @@ GameObject::~GameObject()
 
 void GameObject::addChild(GameObjectSharedPtr Child)
 {
+	Child->m_pParent=this;
 	m_Children.push_back(Child);
 }
 
@@ -29,6 +31,7 @@ void GameObject::addComponent(Component::ComponentSharedPtr Component)
 
 	}
 	else{
+		Component->setOwner(this);
 		m_Components[Component->getType()]=Component;
 		m_ComponentList.push_back(Component);
 	}
