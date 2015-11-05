@@ -2,7 +2,7 @@
 
 Material::Material()
 {
-
+  m_Type="Material";
 }
 
 Material::~Material()
@@ -12,13 +12,13 @@ Material::~Material()
 
 void Material::onPreRender()
 {
-  bind();
+    bind();
 }
 
 void Material::bind()
 {
   m_pShader->useProgram();
-  
+
   GLint ambientMaterialLocation=m_pShader->getUniformLocation("ambientMaterial");
   GLint diffuseMaterialLocation=m_pShader->getUniformLocation("diffuseMaterial");
   GLint specularMaterialLocation=m_pShader->getUniformLocation("specularMaterial");

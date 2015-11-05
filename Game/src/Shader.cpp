@@ -176,12 +176,12 @@ void Shader::setUniform4fv(GLint uniformLocation,vec4 &value)
   glUniform4fv(uniformLocation,1,value_ptr(value));
 }
 
-void setUniformMatrix3f(GLint uniformLocation,mat3 &value)
+void Shader::setUniformMatrix3f(GLint uniformLocation,mat3 &value)
 {
   glUniformMatrix3fv(uniformLocation,1,GL_FALSE,value_ptr(value));
 }
 
-void setUniformMatrix4f(GLint uniformLocation,mat4 &value)
+void Shader::setUniformMatrix4f(GLint uniformLocation,mat4 &value)
 {
   glUniformMatrix4fv(uniformLocation,1,GL_FALSE,value_ptr(value));
 }

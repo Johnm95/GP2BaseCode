@@ -17,6 +17,11 @@ GameObject::~GameObject()
 	m_ComponentList.clear();
 }
 
+void GameObject::setName(const string& name)
+{
+	m_Name=name;
+}
+
 void GameObject::addChild(GameObjectSharedPtr Child)
 {
 	Child->m_pParent=this;
@@ -28,12 +33,13 @@ void GameObject::addComponent(Component::ComponentSharedPtr Component)
 	//check to see if Component exists, if it does, don't add
 	if (m_Components.find(Component->getType())==m_Components.end())
 	{
-
-	}
-	else{
+		cout<<"Adding "<<Component->getType()<<" to "<<m_Name<<endl;
 		Component->setOwner(this);
 		m_Components[Component->getType()]=Component;
 		m_ComponentList.push_back(Component);
+	}
+	else{
+		//we found it, so don't do anything
 	}
 }
 
@@ -54,11 +60,11 @@ int GameObject::getNumberOfChildren()
 
 void GameObject::onUpdate()
 {
-	for (ComponentList::iterator it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
+	for (auto it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
 	{
 		(*it)->onUpdate();
 	}
-	for (ChildGameObjects::iterator it=m_Children.begin();it!=m_Children.end();++it)
+	for (auto it=m_Children.begin();it!=m_Children.end();++it)
 	{
 		(*it)->onUpdate();
 	}
@@ -66,7 +72,7 @@ void GameObject::onUpdate()
 
 void GameObject::onPreRender()
 {
-	for (ComponentList::iterator it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
+	for (auto it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
 	{
 		(*it)->onPreRender();
 	}
@@ -74,7 +80,8 @@ void GameObject::onPreRender()
 
 void GameObject::onRender()
 {
-	for (ComponentList::iterator it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
+	//cout<<"Drawing Game Object"<<endl;
+	for (auto it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
 	{
 		(*it)->onRender();
 	}
@@ -82,7 +89,7 @@ void GameObject::onRender()
 
 void GameObject::onPostRender()
 {
-	for (ComponentList::iterator it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
+	for (auto it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
 	{
 		(*it)->onPostRender();
 	}
@@ -90,7 +97,7 @@ void GameObject::onPostRender()
 
 void GameObject::onInit()
 {
-	for (ComponentList::iterator it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
+	for (auto it=m_ComponentList.begin();it!=m_ComponentList.end();++it)
 	{
 		(*it)->onInit();
 	}

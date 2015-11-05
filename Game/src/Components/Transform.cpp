@@ -24,4 +24,5 @@ void Transform::onUpdate()
 
   m_ModelMatrix=m_ScaleMatrix*m_RotationalMatrix*m_TranlationMatrix;
   m_ModelMatrix*=parentModel;
+  
 }

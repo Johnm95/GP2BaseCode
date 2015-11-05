@@ -5,6 +5,7 @@ Mesh::Mesh()
   m_VAO=0;
   m_VBO=0;
   m_EBO=0;
+  m_Type="Mesh";
 }
 
 Mesh::~Mesh()
@@ -39,6 +40,9 @@ void Mesh::init(Vertex *pVertex, int numVertices, int *pIndices, int numIndices)
     glEnableVertexAttribArray(2);
     glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(offsetof(Vertex,texCoords)));
 
+    m_numVertices=numVertices;
+    m_numIndices=numIndices;
+
 }
 
 void Mesh::onPreRender()
@@ -49,6 +53,11 @@ void Mesh::onPreRender()
 void Mesh::bind()
 {
   glBindVertexArray(m_VAO);
+}
+
+void Mesh::onRender()
+{
+  glDrawElements(GL_TRIANGLES, m_numIndices, GL_UNSIGNED_INT, 0);
 }
 
 void Mesh::destroy()

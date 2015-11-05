@@ -69,6 +69,7 @@ MyGame::~MyGame()
 void MyGame::initScene()
 {
   shared_ptr<GameObject> pObj(new GameObject);
+	pObj->setName("Cube");
   pObj->addComponent(shared_ptr<Transform>(new Transform));
 
 	shared_ptr<Mesh> pMesh=shared_ptr<Mesh>(new Mesh);

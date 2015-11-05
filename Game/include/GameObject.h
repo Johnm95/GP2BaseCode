@@ -17,7 +17,7 @@ public:
 
 	GameObject();
 	~GameObject();
-
+	void setName(const string& name);
 	void addChild(GameObjectSharedPtr Child);
 	void addComponent(Component::ComponentSharedPtr Component);
 
