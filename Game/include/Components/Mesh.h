@@ -15,7 +15,7 @@ public:
   void init(Vertex *pVertex, int numVertices, int *pIndices, int numIndices);
   void onPreRender();
 private:
-  void onBind();
+  void bind();
   void destroy();
 private:
   GLuint m_VAO;

@@ -69,6 +69,8 @@ void GameApplication::initScene()
 	m_MainCamera=shared_ptr<GameObject>(new GameObject);
 	shared_ptr<Transform> t=shared_ptr<Transform>(new Transform);
 	t->setPosition(vec3(0.0f,0.0f,10.0f));
+	//create camera component
+
 	m_MainCamera->addComponent(t);
 
 
@@ -91,10 +93,17 @@ void GameApplication::render(GameObject::GameObjectSharedPtr gObj)
 
 	gObj->onPreRender();
 	//grab current material
+	shared_ptr<Material> mat=static_pointer_cast<Material>(gObj->getComponent("Material"));
 	//grab shader
+	shared_ptr<Shader> shader=mat->getShader();
 	//grab camera
+	shared_ptr<Camera> camera=static_pointer_cast<Camera>(gObj->getComponent("Camera"));
 	//grab transform
+	shared_ptr<Transform> t=static_pointer_cast<Transform>(gObj->getComponent("Transform"));
 	//send values to shader
+	GLint MVPMatrixLocation=shader->getUniformLocation("MVP");
+	mat4 MVPMatrix=t->getModelMatrix()*camera->getView()*camera->getProjection();
+
 	gObj->onRender();
 
 	gObj->onPostRender();

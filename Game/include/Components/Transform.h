@@ -31,6 +31,11 @@ public:
     m_Position=pos;
   };
 
+  vec3& getPosition()
+  {
+    return m_Position;
+  };
+
   void setRotatation(const vec3& rotation)
   {
     m_Rotation=rotation;

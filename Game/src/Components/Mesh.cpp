@@ -43,10 +43,10 @@ void Mesh::init(Vertex *pVertex, int numVertices, int *pIndices, int numIndices)
 
 void Mesh::onPreRender()
 {
-  onBind();
+  bind();
 }
 
-void Mesh::onBind()
+void Mesh::bind()
 {
   glBindVertexArray(m_VAO);
 }

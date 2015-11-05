@@ -11,8 +11,45 @@ public:
 
   void onUpdate();
 
-  void setLookAt(vec3& pos);
-  void setUp(vec3& up);
+  void setLookAt(vec3& look)
+  {
+    m_LookAt=look;
+  };
+
+  void setUp(vec3& up)
+  {
+    m_Up=up;
+  }
+
+  void setAspectRatio(float aspectRatio)
+  {
+    m_AspectRatio=aspectRatio;
+  };
+
+  void setFOV(float fov)
+  {
+    m_FOV=fov;
+  };
+
+  void setNearClip(float near)
+  {
+    m_NearClip=near;
+  };
+
+  void setFarClip(float far)
+  {
+    m_FarClip=far;
+  };
+
+  mat4& getProjection()
+  {
+    return m_Projection;
+  };
+
+  mat4& getView()
+  {
+    return m_View;
+  };
 private:
   vec3 m_LookAt;
   vec3 m_Up;
@@ -20,6 +57,8 @@ private:
   float m_FOV;
   float m_NearClip;
   float m_FarClip;
+  mat4 m_View;
+  mat4 m_Projection;
 };
 
 #endif
