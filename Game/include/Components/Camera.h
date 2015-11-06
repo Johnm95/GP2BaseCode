@@ -31,14 +31,14 @@ public:
     m_FOV=fov;
   };
 
-  void setNearClip(float near)
+  void setNearClip(float nearClip)
   {
-    m_NearClip=near;
+	  m_NearClip = nearClip;
   };
 
-  void setFarClip(float far)
+  void setFarClip(float farClip)
   {
-    m_FarClip=far;
+	  m_FarClip = farClip;
   };
 
   mat4& getProjection()

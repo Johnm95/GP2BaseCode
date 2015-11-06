@@ -74,12 +74,12 @@ void GameApplication::initScene()
 	shared_ptr<Camera> c=shared_ptr<Camera>(new Camera);
 	c->setFOV(45.0f);
 	c->setAspectRatio(640/480);
-	c->setNearClip(1.0f);
+	c->setNearClip(0.1f);
 	c->setFarClip(1000.0f);
 
 	m_MainCamera->addComponent(c);
 	m_MainCamera->addComponent(t);
-
+	m_GameObjects.push_back(m_MainCamera);
 
 	for (auto it=m_GameObjects.begin();it!=m_GameObjects.end();++it)
 	{
@@ -133,9 +133,11 @@ void GameApplication::render(GameObject::GameObjectSharedPtr gObj)
 
 void GameApplication::render()
 {
-
+	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
 	//Set the clear colour(background)
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f); 
+	//Clear the depth buffer
+	glClearDepth(1.0f);
 	//clear the colour and depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
