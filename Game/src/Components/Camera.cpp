@@ -25,6 +25,6 @@ void Camera::onUpdate()
 {
   shared_ptr<Transform> t=static_pointer_cast<Transform>(m_pOwner->getComponent("Transform"));
 
-  m_View=lookAt(t->getPosition(),m_LookAt,m_Up);
+  m_View=lookAt(vec3(0.0f,0.0f,-10.0f),m_LookAt,m_Up);
   m_Projection=perspective(m_FOV,m_AspectRatio,m_NearClip,m_FarClip);
 }

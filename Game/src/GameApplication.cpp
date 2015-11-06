@@ -73,7 +73,7 @@ void GameApplication::initScene()
 	//create camera component
 	shared_ptr<Camera> c=shared_ptr<Camera>(new Camera);
 	c->setFOV(45.0f);
-	c->setAspectRatio(640/480);
+	c->setAspectRatio(640.0f/480.0f);
 	c->setNearClip(0.1f);
 	c->setFarClip(1000.0f);
 
@@ -111,11 +111,12 @@ void GameApplication::render(GameObject::GameObjectSharedPtr gObj)
 		auto t=static_pointer_cast<Transform>(gObj->getComponent("Transform"));
 		//send values to shader
 		if (shader){
-			//cout<<"Grabing Shader"<<endl;
 			GLint MVPMatrixLocation=shader->getUniformLocation("MVP");
 			if (camera && t){
-				//cout<<"Sending along MVP"<<endl;
-				mat4 MVPMatrix=t->getModelMatrix()*camera->getView()*camera->getProjection();
+				mat4 modelMatrix=t->getModelMatrix();
+				mat4 viewMatrix=camera->getView();
+				mat4 projectionMatrix=camera->getProjection();
+				mat4 MVPMatrix=projectionMatrix*viewMatrix*modelMatrix;
 				shader->setUniformMatrix4f(MVPMatrixLocation,MVPMatrix);
 			}
 		}
@@ -135,7 +136,7 @@ void GameApplication::render()
 {
 	glBindFramebuffer(GL_DRAW_FRAMEBUFFER, 0);
 	//Set the clear colour(background)
-	glClearColor(0.0f, 0.0f, 0.0f, 1.0f); 
+	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
 	//Clear the depth buffer
 	glClearDepth(1.0f);
 	//clear the colour and depth buffer
