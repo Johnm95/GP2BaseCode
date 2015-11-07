@@ -1,5 +1,5 @@
 #include "FBXLoader.h"
-#include "Components\Components.h"
+#include "Components/Components.h"
 int level = 0;
 
 void PrintTabs() {
@@ -52,7 +52,7 @@ shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 	// Create a new scene so that it can be populated by the imported file.
 	if (!lImporter->Initialize(filename.c_str(), -1, lSdkManager->GetIOSettings()))
 	{
-		return false;
+		return NULL;
 	}
 
 	// Create a new scene so that it can be populated by the imported file.
@@ -70,7 +70,7 @@ shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 		rootGameObj->setName(lRootNode->GetName());
 		auto transform = shared_ptr<Transform>(new Transform);
 		rootGameObj->addComponent(transform);
-		
+
 		for (int i = 0; i < lRootNode->GetChildCount(); i++)
 		{
 			processNode(lRootNode->GetChild(i), rootGameObj);
@@ -84,8 +84,8 @@ shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 		return NULL;
 	}
 
-	
-	
+
+
 }
 
 void processNode(FbxNode *node, shared_ptr<GameObject> parent)
