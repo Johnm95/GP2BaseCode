@@ -68,10 +68,10 @@ void GameApplication::initScene()
 {
 	m_MainCamera=shared_ptr<GameObject>(new GameObject);
 	m_MainCamera->setName("Main Camera");
-	shared_ptr<Transform> t=shared_ptr<Transform>(new Transform);
-	t->setPosition(vec3(0.0f,0.0f,10.0f));
+	auto t=shared_ptr<Transform>(new Transform);
+	t->setPosition(vec3(0.0f,0.0f,-10.0f));
 	//create camera component
-	shared_ptr<Camera> c=shared_ptr<Camera>(new Camera);
+	auto c=shared_ptr<Camera>(new Camera);
 	c->setFOV(45.0f);
 	c->setAspectRatio(640.0f/480.0f);
 	c->setNearClip(0.1f);

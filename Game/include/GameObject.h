@@ -20,6 +20,7 @@ public:
 	void setName(const string& name);
 	void addChild(GameObjectSharedPtr Child);
 	void addComponent(Component::ComponentSharedPtr Component);
+	void addComponentToAll(Component::ComponentSharedPtr Component);
 
 	Component::ComponentSharedPtr getComponent(const string &type);
 	GameObjectSharedPtr getChild(int index);
@@ -37,6 +38,7 @@ public:
 	};
 
 private:
+	void addComponent(GameObject * current, Component::ComponentSharedPtr Component);
 	string m_Name;
 	ChildGameObjects m_Children;
 	Components m_Components;

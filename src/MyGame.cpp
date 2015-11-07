@@ -68,26 +68,43 @@ MyGame::~MyGame()
 
 void MyGame::initScene()
 {
-  shared_ptr<GameObject> pObj(new GameObject);
+	auto pObj=shared_ptr<GameObject>(new GameObject);
 	pObj->setName("Cube");
-  pObj->addComponent(shared_ptr<Transform>(new Transform));
+	auto transform = shared_ptr<Transform>(new Transform);
+	transform->setPosition(vec3(5, 0.0, 0.0));
+	pObj->addComponent(transform);
 
-	shared_ptr<Mesh> pMesh=shared_ptr<Mesh>(new Mesh);
-	pMesh->init(verts,8,indices,36);
+	auto pMesh = shared_ptr<Mesh>(new Mesh);
+	pMesh->init(verts, 8, indices, 36);
 	pObj->addComponent(pMesh);
 
-	shared_ptr<Shader> pShader=shared_ptr<Shader>(new Shader);
-	string vsFilename=ASSET_PATH+SHADER_PATH+"/simpleVS.glsl";
-	string fsFilename=ASSET_PATH+SHADER_PATH+"/simpleFS.glsl";
-	pShader->loadShaderFromFiles(vsFilename,fsFilename);
+	auto pShader = shared_ptr<Shader>(new Shader);
+	string vsFilename = ASSET_PATH + SHADER_PATH + "/simpleVS.glsl";
+	string fsFilename = ASSET_PATH + SHADER_PATH + "/simpleFS.glsl";
+	pShader->loadShaderFromFiles(vsFilename, fsFilename);
 	pShader->link();
 
-	shared_ptr<Material> pMaterial=shared_ptr<Material>(new Material);
+	auto pMaterial = shared_ptr<Material>(new Material);
 	pMaterial->setShader(pShader);
 	pObj->addComponent(pMaterial);
+	m_GameObjects.push_back(pObj);
 
+	//Create new shader
+	pShader = shared_ptr<Shader>(new Shader);
+	vsFilename = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
+	fsFilename = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
+	pShader->loadShaderFromFiles(vsFilename, fsFilename);
+	pShader->link();
 
-  m_GameObjects.push_back(pObj);
+	pMaterial = shared_ptr<Material>(new Material);
+	string texturePath = ASSET_PATH + TEXTURE_PATH + "/armoredrecon_diff.png";
+	pMaterial->loadDiffuseTexture(texturePath);
+	pMaterial->setShader(pShader);
 
-  GameApplication::initScene();
+	string modelFile = ASSET_PATH + MODEL_PATH + "/armoredrecon.fbx";
+	auto armoredreconModel=loadFBXFromFile(modelFile);
+	armoredreconModel->addComponentToAll(pMaterial);
+	m_GameObjects.push_back(armoredreconModel);
+
+	GameApplication::initScene();
 }

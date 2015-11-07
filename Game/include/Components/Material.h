@@ -38,6 +38,9 @@ public:
     m_pShader=shader;
   };
 
+  void loadDiffuseTexture(const string &filename);
+  void loadSpecularTexture(const string &filename);
+
   shared_ptr<Shader> getShader()
   {
     return m_pShader;
@@ -50,6 +53,8 @@ protected:
   vec4 m_DiffuseColour;
   vec4 m_SpecularColour;
   float m_SpecularPower;
+  GLuint m_DiffuseTexture;
+  GLuint m_SpecularTexture;
   shared_ptr<Shader> m_pShader;
 };
 

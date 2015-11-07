@@ -13,12 +13,6 @@ Mesh::~Mesh()
   destroy();
 }
 
-void Mesh::init(const string& filename)
-{
-
-
-}
-
 void Mesh::init(Vertex *pVertex, int numVertices, int *pIndices, int numIndices)
 {
     glGenVertexArrays(1,&m_VAO);
@@ -36,11 +30,11 @@ void Mesh::init(Vertex *pVertex, int numVertices, int *pIndices, int numIndices)
     glEnableVertexAttribArray(0);
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), NULL);
 
-    //glEnableVertexAttribArray(1);
-    //glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(offsetof(Vertex,colour)));
+    glEnableVertexAttribArray(1);
+    glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(sizeof(vec3)));
 
-    //glEnableVertexAttribArray(2);
-    //glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(offsetof(Vertex,texCoords)));
+    glEnableVertexAttribArray(2);
+	glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(sizeof(vec3) + sizeof(vec4)));
 
     m_numVertices=numVertices;
     m_numIndices=numIndices;

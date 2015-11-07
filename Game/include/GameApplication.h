@@ -6,6 +6,7 @@
 #include "Graphics.h"
 #include "GameObject.h"
 #include "Components/Components.h"
+#include "FBXLoader.h"
 
 class GameApplication
 {

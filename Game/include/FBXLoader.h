@@ -2,15 +2,15 @@
 #define FBXLoader_H
 
 #include "Common.h"
-#include "MeshData.h"
+#include "GameObject.h"
 #include "Vertices.h"
 #include <fbxsdk.h>
 
-bool loadFBXFromFile(const string& filename, MeshData *meshData);
+shared_ptr<GameObject> loadFBXFromFile(const string& filename);
 
-void processNode(FbxNode *node, MeshData *meshData);
-void processAttribute(FbxNodeAttribute * attribute, MeshData *meshData);
-void processMesh(FbxMesh * mesh, MeshData *meshData);
+void processNode(FbxNode *node,shared_ptr<GameObject> parent);
+void processAttribute(FbxNodeAttribute * attribute, shared_ptr<GameObject> current);
+void processMesh(FbxMesh * mesh, shared_ptr<GameObject> current);
 void processMeshTextureCoords(FbxMesh * mesh, Vertex * verts, int numVerts);
 
 #endif

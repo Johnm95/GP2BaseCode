@@ -1,5 +1,5 @@
 #include "FBXLoader.h"
-
+#include "Components\Components.h"
 int level = 0;
 
 void PrintTabs() {
@@ -36,7 +36,7 @@ FbxString GetAttributeTypeName(FbxNodeAttribute::EType type) {
 	}
 }
 
-bool loadFBXFromFile(const string& filename, MeshData *meshData)
+shared_ptr<GameObject> loadFBXFromFile(const string& filename)
 {
   level = 0;
 	// Initialize the SDK manager. This object handles memory management.
@@ -66,42 +66,64 @@ bool loadFBXFromFile(const string& filename, MeshData *meshData)
 	FbxNode* lRootNode = lScene->GetRootNode();
 	if (lRootNode) {
 		cout << "Root Node " << lRootNode->GetName() << endl;
+		auto rootGameObj = shared_ptr<GameObject>(new GameObject);
+		rootGameObj->setName(lRootNode->GetName());
+		auto transform = shared_ptr<Transform>(new Transform);
+		rootGameObj->addComponent(transform);
+		
 		for (int i = 0; i < lRootNode->GetChildCount(); i++)
 		{
-			processNode(lRootNode->GetChild(i),meshData);
+			processNode(lRootNode->GetChild(i), rootGameObj);
 		}
+		lImporter->Destroy();
+		return rootGameObj;
+	}
+	else
+	{
+		lImporter->Destroy();
+		return NULL;
 	}
 
-	lImporter->Destroy();
-	return true;
+	
+	
 }
 
-void processNode(FbxNode *node, MeshData *meshData)
+void processNode(FbxNode *node, shared_ptr<GameObject> parent)
 {
 	PrintTabs();
-	const char* nodeName = node->GetName();
+	auto currentGameObj = shared_ptr<GameObject>(new GameObject);
+	currentGameObj->setName(node->GetName());
+
 	FbxDouble3 translation =  node->LclTranslation.Get();
 	FbxDouble3 rotation = node->LclRotation.Get();
 	FbxDouble3 scaling = node->LclScaling.Get();
 
-	cout << "Node " << nodeName << " Postion " << translation[0] << " " << translation[1] << " " << translation[2] << " "
+	auto transform = shared_ptr<Transform>(new Transform);
+	transform->setPosition(vec3(translation[0],translation[1],translation[2]));
+	transform->setRotatation(vec3(rotation[0],rotation[1],rotation[2]));
+	transform->setScale(vec3(scaling[0], scaling[1],scaling[2]));
+
+	currentGameObj->addComponent(transform);
+	parent->addChild(currentGameObj);
+
+	cout << "Node " << node->GetName() << " Postion " << translation[0] << " " << translation[1] << " " << translation[2] << " "
 		<< " Rotation " << rotation[0] << " " << rotation[1] << " " << rotation[2] << " "
 		<< " Scale " << scaling[0] << " " << scaling[1] << " " << scaling[2] << endl;
 
 	level++;
 	// Print the node's attributes.
 	for (int i = 0; i < node->GetNodeAttributeCount(); i++){
-		processAttribute(node->GetNodeAttributeByIndex(i),meshData);
+		processAttribute(node->GetNodeAttributeByIndex(i), currentGameObj);
 	}
 
 	// Recursively print the children.
 	for (int j = 0; j < node->GetChildCount(); j++)
-		processNode(node->GetChild(j),meshData);
+		processNode(node->GetChild(j), currentGameObj);
 	level--;
 	PrintTabs();
 }
 
-void processAttribute(FbxNodeAttribute * attribute, MeshData *meshData)
+void processAttribute(FbxNodeAttribute * attribute, shared_ptr<GameObject> current)
 {
 	if (!attribute) return;
 	FbxString typeName = GetAttributeTypeName(attribute->GetAttributeType());
@@ -109,14 +131,16 @@ void processAttribute(FbxNodeAttribute * attribute, MeshData *meshData)
 	PrintTabs();
 	cout << "Attribute " << typeName.Buffer() << " Name " << attrName << endl;
 	switch (attribute->GetAttributeType()) {
-	case FbxNodeAttribute::eMesh: processMesh(attribute->GetNode()->GetMesh(), meshData);
+	case FbxNodeAttribute::eMesh: processMesh(attribute->GetNode()->GetMesh(), current);
 	case FbxNodeAttribute::eCamera: return;
 	case FbxNodeAttribute::eLight: return;
 	}
 }
 
-void processMesh(FbxMesh * mesh, MeshData *meshData)
+void processMesh(FbxMesh * mesh, shared_ptr<GameObject> current)
 {
+	//Create a mesh component
+	auto meshComponent = shared_ptr<Mesh>(new Mesh);
 
 	int numVerts = mesh->GetControlPointsCount();
 	int numIndices = mesh->GetPolygonVertexCount();
@@ -133,17 +157,11 @@ void processMesh(FbxMesh * mesh, MeshData *meshData)
 	}
 
 	processMeshTextureCoords(mesh, pVerts, numVerts);
-
-	for (int i = 0; i < numVerts; i++)
-	{
-		meshData->vertices.push_back(pVerts[i]);
-	}
-	for (int i = 0; i < numIndices; i++)
-	{
-		meshData->indices.push_back(pIndices[i]);
-	}
 	cout << "Vertices " << numVerts << " Indices " << numIndices << endl;
 
+
+	meshComponent->init(pVerts, numVerts, pIndices, numIndices);
+	current->addComponent(meshComponent);
 
 	if (pVerts)
 	{

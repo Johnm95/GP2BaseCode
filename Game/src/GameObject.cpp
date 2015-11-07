@@ -43,6 +43,21 @@ void GameObject::addComponent(Component::ComponentSharedPtr Component)
 	}
 }
 
+void GameObject::addComponent(GameObject * current, Component::ComponentSharedPtr Component)
+{
+	current->addComponent(Component);
+	for (int i = 0; i < current->getNumberOfChildren(); i++)
+	{
+		GameObject * pChild = current->getChild(i).get();
+		addComponent(pChild, Component);
+	}
+}
+
+void GameObject::addComponentToAll(Component::ComponentSharedPtr Component)
+{
+	addComponent(this, Component);
+}
+
 Component::ComponentSharedPtr GameObject::getComponent(const string &type)
 {
 	return m_Components[type];

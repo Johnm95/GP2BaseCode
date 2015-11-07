@@ -11,7 +11,6 @@ public:
   Mesh();
   ~Mesh();
 
-  void init(const string& filename);
   void init(Vertex *pVertex, int numVertices, int *pIndices, int numIndices);
   void onPreRender();
   void onRender();
