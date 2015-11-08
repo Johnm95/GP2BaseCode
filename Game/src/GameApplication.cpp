@@ -69,7 +69,7 @@ void GameApplication::initScene()
 	m_MainCamera=shared_ptr<GameObject>(new GameObject);
 	m_MainCamera->setName("Main Camera");
 	auto t=shared_ptr<Transform>(new Transform);
-	t->setPosition(vec3(0.0f,0.0f,-10.0f));
+	t->setPosition(vec3(0.0f,0.0f,10.0f));
 	//create camera component
 	auto c=shared_ptr<Camera>(new Camera);
 	c->setFOV(45.0f);

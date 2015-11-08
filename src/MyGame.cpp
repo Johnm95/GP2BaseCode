@@ -3,38 +3,42 @@
 Vertex verts[] = {
 	//Front
 	{ vec3(-0.5f, 0.5f, 0.5f),
-	vec4(1.0f, 0.0f, 1.0f, 1.0f), vec2(0.0f, 0.0f) },// Top Left
+	vec4(1.0f, 1.0f, 1.0f, 1.0f),
+		vec2(0.0f, 0.0f) },// Top Left
 
-	{ vec3(-0.5f, -0.5f, 0.5f),
-	vec4(1.0f, 1.0f, 0.0f, 1.0f), vec2(0.0f, 1.0f) },// Bottom Left
+		{ vec3(-0.5f, -0.5f, 0.5f), 
+		vec4(1.0f, 1.0f, 1.0f, 1.0f),
+		vec2(0.0f, 1.0f)  },// Bottom Left
 
 	{ vec3(0.5f, -0.5f, 0.5f),
-	vec4(0.0f, 1.0f, 1.0f, 1.0f), vec2(1.0f, 1.0f) }, //Bottom Right
+	vec4(1.0f, 1.0f, 1.0f, 1.0f),
+	vec2(1.0f, 1.0f) }, //Bottom Right
 
-	{ vec3(0.5f, 0.5f, 0.5f),
-	vec4(1.0f, 0.0f, 1.0f, 1.0f), vec2(1.0f, 0.0f) },// Top Right
+	{ vec3(0.5f, 0.5f, 0.5f), 
+	vec4(1.0f, 1.0f, 1.0f, 1.0f),
+	vec2(1.0f, 0.0f)},// Top Right
 
 
 	//back
-	{ vec3(-0.5f, 0.5f, -0.5f),
-	vec4(1.0f, 0.0f, 1.0f, 1.0f), vec2(0.0f, 0.0f) },// Top Left
+	{ vec3(-0.5f, 0.5f, -0.5f), vec4(1.0f, 1.0f, 1.0f, 1.0f),
+	vec2(0.0f, 0.0f)},// Top Left
 
-	{ vec3(-0.5f, -0.5f, -0.5f),
-	vec4(1.0f, 1.0f, 0.0f, 1.0f), vec2(0.0f, 1.0f) },// Bottom Left
+	{ vec3(-0.5f, -0.5f, -0.5f), vec4(1.0f, 1.0f, 1.0f, 1.0f),
+	vec2(0.0f, 1.0f) },// Bottom Left
 
-	{ vec3(0.5f, -0.5f, -0.5f),
-	vec4(0.0f, 1.0f, 1.0f, 1.0f), vec2(1.0f, 1.0f) }, //Bottom Right
+	{ vec3(0.5f, -0.5f, -0.5f), vec4(1.0f, 1.0f, 1.0f, 1.0f),
+	vec2(1.0f, 1.0f) }, //Bottom Right
 
-	{ vec3(0.5f, 0.5f, -0.5f),
-	vec4(1.0f, 0.0f, 1.0f, 1.0f), vec2(1.0f, 0.0f) },// Top Right
+	{ vec3(0.5f, 0.5f, -0.5f), vec4(1.0f, 1.0f, 1.0f, 1.0f),
+	vec2(1.0f, 0.0f)},// Top Right
 
 };
 
 int indices[] = {
 	//front
 	0, 1, 2,
-	0, 3, 2,
-
+	0, 3, 2
+	/*
 	//left
 	4, 5, 1,
 	4, 1, 0,
@@ -53,7 +57,7 @@ int indices[] = {
 
 	//back
 	4, 5, 6,
-	4, 7, 6
+	4, 7, 6*/
 };
 
 MyGame::MyGame()
@@ -75,16 +79,18 @@ void MyGame::initScene()
 	pObj->addComponent(transform);
 
 	auto pMesh = shared_ptr<Mesh>(new Mesh);
-	pMesh->init(verts, 8, indices, 36);
+	pMesh->init(verts, 8, indices, 6);
 	pObj->addComponent(pMesh);
 
 	auto pShader = shared_ptr<Shader>(new Shader);
-	string vsFilename = ASSET_PATH + SHADER_PATH + "/simpleVS.glsl";
-	string fsFilename = ASSET_PATH + SHADER_PATH + "/simpleFS.glsl";
+	string vsFilename = ASSET_PATH + SHADER_PATH + "/textureVS.glsl";
+	string fsFilename = ASSET_PATH + SHADER_PATH + "/textureFS.glsl";
 	pShader->loadShaderFromFiles(vsFilename, fsFilename);
 	pShader->link();
 
 	auto pMaterial = shared_ptr<Material>(new Material);
+	string texturePath = ASSET_PATH + TEXTURE_PATH + "/texture.png";
+	pMaterial->loadDiffuseTexture(texturePath);
 	pMaterial->setShader(pShader);
 	pObj->addComponent(pMaterial);
 	m_GameObjects.push_back(pObj);
@@ -97,7 +103,7 @@ void MyGame::initScene()
 	pShader->link();
 
 	pMaterial = shared_ptr<Material>(new Material);
-	string texturePath = ASSET_PATH + TEXTURE_PATH + "/armoredrecon_diff.png";
+	texturePath = ASSET_PATH + TEXTURE_PATH + "/armoredrecon_diff.png";
 	pMaterial->loadDiffuseTexture(texturePath);
 	pMaterial->setShader(pShader);
 

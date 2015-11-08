@@ -152,7 +152,6 @@ void processMesh(FbxMesh * mesh, shared_ptr<GameObject> current)
 	{
 		FbxVector4 currentVert = mesh->GetControlPointAt(i);
 		pVerts[i].position = vec3(currentVert[0], currentVert[1], currentVert[2]);
-		pVerts[i].colour= vec4(1.0f, 1.0f, 1.0f, 1.0f);
 		pVerts[i].texCoords = vec2(0.0f, 0.0f);
 	}
 
