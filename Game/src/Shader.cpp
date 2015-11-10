@@ -138,7 +138,6 @@ bool Shader::link()
 	glBindAttribLocation(m_ShaderProgram, 0, "vertexPosition");
 	glBindAttribLocation(m_ShaderProgram, 1, "vertexColour");
 	glBindAttribLocation(m_ShaderProgram, 2, "vertexTexCoords");
-	glBindAttribLocation(m_ShaderProgram, 3, "vertexNormal");
 
 	glDeleteShader(m_VertexShader);
 	glDeleteShader(m_FragmentShader);
