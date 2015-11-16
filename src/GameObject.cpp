@@ -20,6 +20,10 @@ GameObject::GameObject()
 	m_DiffuseMaterial=vec4(0.8f,0.8f,0.8f,1.0f);
 	m_SpecularMaterial=vec4(1.0f,1.0f,1.0f,1.0f);
 	m_SpecularPower=25.0f;
+
+	m_ChildGameObjects.clear();
+
+	m_ParentGameObject = NULL;
 }
 
 GameObject::~GameObject()
@@ -28,11 +32,17 @@ GameObject::~GameObject()
 	glDeleteBuffers(1, &m_EBO);
 	glDeleteVertexArrays(1, &m_VAO);
 	glDeleteProgram(m_ShaderProgram);
-	cout<<"Game Object Deleted"<<endl;
+	m_ChildGameObjects.clear();
 }
 
 void GameObject::update()
 {
+	mat4 parentModel(1.0f);
+	if (m_ParentGameObject)
+	{
+		parentModel = m_ParentGameObject->getModelMatrix();
+	}
+
 	mat4 translationMatrix = translate(mat4(1.0f), m_Position);
 	mat4 scaleMatrix = scale(mat4(1.0f), m_Scale);
 
@@ -41,6 +51,11 @@ void GameObject::update()
 		rotate(mat4(1.0f), m_Rotation.z, vec3(0.0f, 0.0f, 1.0f));
 
 	m_ModelMatrix = scaleMatrix*rotationMatrix*translationMatrix;
+	m_ModelMatrix *= parentModel;
+	for (auto iter = m_ChildGameObjects.begin(); iter != m_ChildGameObjects.end(); iter++)
+	{
+		(*iter)->update();
+	}
 }
 
 void GameObject::createBuffers(Vertex * pVerts, int numVerts, int *pIndices, int numIndices)
@@ -103,4 +118,10 @@ void GameObject::loadShader(const string& vsFilename, const string& fsFilename)
 	//now we can delete the VS & FS Programs
 	glDeleteShader(vertexShaderProgram);
 	glDeleteShader(fragmentShaderProgram);
+}
+
+void GameObject::addChild(shared_ptr<GameObject> child)
+{
+	child->m_ParentGameObject = this;
+	m_ChildGameObjects.push_back(child);
 }

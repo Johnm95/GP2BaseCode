@@ -16,6 +16,7 @@ mat4 projMatrix;
 mat4 MVPMatrix;
 
 shared_ptr<GameObject> gameObject;
+GLuint currentShaderProgam = 0;
 
 vec4 ambientLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
 vec4 diffuseLightColour=vec4(1.0f,1.0f,1.0f,1.0f);
@@ -163,6 +164,27 @@ void update()
 	gameObject->update();
 }
 
+void renderGameObject(shared_ptr<GameObject> currentGameObject)
+{
+	MVPMatrix = projMatrix*viewMatrix*currentGameObject->getModelMatrix();
+
+	if (gameObject->getShaderProgram() > 0){
+		currentShaderProgam = currentGameObject->getShaderProgram();
+		glUseProgram(currentShaderProgam);
+	}
+
+	GLint MVPLocation = glGetUniformLocation(currentShaderProgam, "MVP");
+
+	glUniformMatrix4fv(MVPLocation, 1, GL_FALSE, value_ptr(MVPMatrix));
+	glBindVertexArray(currentGameObject->getVertexArrayObject());
+
+	glDrawElements(GL_TRIANGLES, gameObject->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
+
+	for (int i = 0; i < currentGameObject->getNumberOfChildren(); i++)
+	{
+		renderGameObject(currentGameObject->getChild(i));
+	}
+}
 
 void renderScene()
 {
@@ -172,17 +194,7 @@ void renderScene()
 	//clear the colour and depth buffer
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
-	MVPMatrix = projMatrix*viewMatrix*gameObject->getModelMatrix();
-
-	GLuint currentShaderProgam = gameObject->getShaderProgram();
-	glUseProgram(currentShaderProgam);
-
-	GLint MVPLocation = glGetUniformLocation(currentShaderProgam, "MVP");
-	glUniformMatrix4fv(MVPLocation, 1, GL_FALSE, value_ptr(MVPMatrix));
-
-	glBindVertexArray(gameObject->getVertexArrayObject());
-
-	glDrawElements(GL_TRIANGLES, gameObject->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
+	renderGameObject(gameObject);
 }
 
 void renderPostQuad()

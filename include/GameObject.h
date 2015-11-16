@@ -74,6 +74,24 @@ public:
 	{
 		return m_NoOfVertices;
 	};
+
+	int getNumberOfChildren()
+	{
+		return m_ChildGameObjects.size();
+	};
+
+	GameObject * getParent()
+	{
+		return m_ParentGameObject;
+	};
+
+	shared_ptr<GameObject> getChild(int i)
+	{
+		return m_ChildGameObjects.at(i);
+	};
+
+	void addChild(shared_ptr<GameObject> child);
+
 private:
 	GLuint m_VBO;
 	GLuint m_EBO;
@@ -91,6 +109,9 @@ private:
 	vec4 m_DiffuseMaterial;
 	vec4 m_SpecularMaterial;
 	float m_SpecularPower;
+
+	vector<shared_ptr<GameObject> > m_ChildGameObjects;
+	GameObject * m_ParentGameObject;
 };
 
 #endif
