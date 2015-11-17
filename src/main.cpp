@@ -1,9 +1,28 @@
 #include "Common.h"
 #include "Graphics.h"
 
+float verts[] = {0.0f,1.0f,0.0f, //Top
+    -1.0f,-1.0f,0.0f, //Bottom Left
+    2.0f,-1.0f,0.0f}; //Bottom Right
+
+GLuint VBO;
+
 void update()
 {
 }
+
+
+void initScene()
+{
+    //Create buffer
+    glGenBuffers(1,&VBO);
+    //Make the new VBO active
+    glBindBuffer(GL_ARRAY_BUFFER,VBO);
+    //Copy Vertex Data to VBO
+    glBufferData(GL_ARRAY_BUFFER, sizeof(verts),verts,GL_STATIC_DRAW);
+}
+
+
 
 void render()
 {
@@ -12,6 +31,25 @@ void render()
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
     //clear the colour and depth buffer
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
+    
+    //Make the new VBO active. Repeat here as a sanity check(may have changed since initialisation)
+    glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    
+    //Establish its 3 coordinates per vertex with zero stride(space between elements) in array and contain floating point numbers
+    glVertexPointer(3,GL_FLOAT,0,NULL);
+    
+    //Establish array contains vertices(not normals, colours, texture coords etc)
+    glEnableClientState(GL_VERTEX_ARRAY);
+    
+    //Switch to ModelView
+    glMatrixMode(GL_MODELVIEW);
+    //Reset using the Identity Matrix
+    glLoadIdentity();
+    //Translate
+    glTranslatef(0.0f,0.0f,-6.0f);
+    //Actually draw the triangle, giving the number of vertices provided
+    glDrawArrays(GL_TRIANGLES,0,sizeof(verts)/(3*sizeof(float)));
+    
 
     //Swith to ModelView
     glMatrixMode( GL_MODELVIEW );
@@ -31,6 +69,11 @@ void render()
       glVertex3f(  1.0f, -1.0f, 0.0f ); // Bottom Right
     glEnd( );
 
+}
+
+void cleanUp()
+{
+    glDeleteBuffers(1,&VBO);
 }
 
 int main(int argc, char * arg[])
@@ -61,6 +104,10 @@ int main(int argc, char * arg[])
     //Initialisation
     //Call our InitOpenGL Function
     initOpenGL();
+    
+    //Call our initScene Function
+    initScene();
+    
     //Set our viewport
     setViewport(640,480);
 
@@ -100,6 +147,7 @@ int main(int argc, char * arg[])
     }
 
     // clean up, reverse order!!!
+    cleanUp();
     SDL_GL_DeleteContext(glcontext);
     SDL_DestroyWindow(window);
     SDL_Quit();
