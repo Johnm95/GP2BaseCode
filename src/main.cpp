@@ -25,10 +25,6 @@ Vertex verts[] = {
         0.0f,1.0f,1.0f,1.0f},//Bottom Right
     {0.5f,0.5f,0.5f,
         1.0f,0.0f,1.0f,1.0f},//Top Right
-    {-0.5f,0.5f,0.5f,
-        1.0f,0.0f,1.0f,1.0}, //Top Left
-    {0.5f,-0.5f,0.5f,
-        0.0f,1.0f,1.0f,1.0f},//Bottom Right
     
     //Back
     {-0.5f,0.5f,-0.5f,
@@ -39,20 +35,43 @@ Vertex verts[] = {
         0.0f,1.0f,1.0f,1.0f},//Bottom Right
     {0.5f,0.5f,-0.5f,
         1.0f,0.0f,1.0f,1.0f},//Top Right
-    {-0.5f,0.5f,-0.5f,
-        1.0f,0.0f,1.0f,1.0f},//Top Left
-    {0.5f,-0.5f,-0.5f,
-        0.0f,1.0f,1.0f,1.0f},//Bottom Right
     
     //Right Face
     
     //Left Face
 };
 
+GLuint indices[]={
+    //Front
+    0,1,2,
+    0,3,2,
+    
+    //Left
+    4,5,1,
+    4,1,0,
+    
+    //Right
+    3,7,2,
+    7,6,2,
+    
+    //Bottom
+    1,5,2,
+    6,2,5,
+    
+    //Top
+    4,0,7,
+    0,7,3,
+    
+    //Back
+    4,5,6,
+    4,7,6
+};
+
 
 
 
 GLuint VBO;
+GLuint EBO;
 
 void update()
 {
@@ -67,6 +86,13 @@ void initScene()
     glBindBuffer(GL_ARRAY_BUFFER,VBO);
     //Copy Vertex Data to VBO
     glBufferData(GL_ARRAY_BUFFER, sizeof(verts),verts,GL_STATIC_DRAW);
+    
+    //Create buffer
+    glGenBuffers(1,&EBO);
+    //Make the new EBO active
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);
+    //Copy index data to EBO
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),indices,GL_STATIC_DRAW);
 }
 
 
@@ -81,6 +107,7 @@ void render()
     
     //Make the new VBO active. Repeat here as a sanity check(may have changed since initialisation)
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
+    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
     
     //The 3 pointer is now filled out, the pipeline needs to know the size of each vertex
     glVertexPointer(3,GL_FLOAT,sizeof(Vertex),NULL);
@@ -105,6 +132,7 @@ void render()
     //Actually draw the triangle, giving the number of vertices provided
      
     glDrawArrays(GL_TRIANGLES,0,sizeof(verts)/sizeof(Vertex));
+    glDrawElements(GL_TRIANGLES,sizeof(indices)/sizeof(GLuint),GL_UNSIGNED_INT,0);
     
     /*
     //Swith to ModelView
@@ -131,6 +159,7 @@ void render()
 void cleanUp()
 {
     glDeleteBuffers(1,&VBO);
+    glDeleteBuffers(1,&EBO);
 }
 
 int main(int argc, char * arg[])
