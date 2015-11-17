@@ -1,9 +1,56 @@
 #include "Common.h"
 #include "Graphics.h"
+#include "Vertex.h"
+/*
+//This creates a multicoloured TRIANGLE
+Vertex verts[] ={ {0.0f,1.0f,0.0f, //x,y,z
+    1.0f,0.0f,0.0f,1.0f}, //r,g,b,a
+    
+    {-1.0f,-1.0f,0.0f, //x,y,z
+        0.0f,1.0f,0.0f,1.0f}, //r,g,b,a
+    
+    {1.0f,-1.0f,0.0f, //x,y,z
+        0.0f,0.0f,1.0f,1.0f}};//r,g,b,a
+ */
 
-float verts[] = {0.0f,1.0f,0.0f, //Top
-    -1.0f,-1.0f,0.0f, //Bottom Left
-    2.0f,-1.0f,0.0f}; //Bottom Right
+
+ //This creates a multicoloured SQUARE
+Vertex verts[] = {
+    //Front
+    {-0.5f,0.5f,0.5f,
+        1.0f,0.0f,1.0f,1.0f},//Top Left
+    {-0.5f,-0.5f,0.5f,
+        1.0f,1.0f,0.0f,1.0f},//Bottom Left
+    {0.5f,-0.5f,0.5f,
+        0.0f,1.0f,1.0f,1.0f},//Bottom Right
+    {0.5f,0.5f,0.5f,
+        1.0f,0.0f,1.0f,1.0f},//Top Right
+    {-0.5f,0.5f,0.5f,
+        1.0f,0.0f,1.0f,1.0}, //Top Left
+    {0.5f,-0.5f,0.5f,
+        0.0f,1.0f,1.0f,1.0f},//Bottom Right
+    
+    //Back
+    {-0.5f,0.5f,-0.5f,
+        1.0f,0.0f,1.0f,1.0f},//Top Left
+    {-0.5f,-0.5f,-0.5f,
+        1.0f,1.0f,0.0f,1.0f},//Bottom Left
+    {0.5f,-0.5f,-0.5f,
+        0.0f,1.0f,1.0f,1.0f},//Bottom Right
+    {0.5f,0.5f,-0.5f,
+        1.0f,0.0f,1.0f,1.0f},//Top Right
+    {-0.5f,0.5f,-0.5f,
+        1.0f,0.0f,1.0f,1.0f},//Top Left
+    {0.5f,-0.5f,-0.5f,
+        0.0f,1.0f,1.0f,1.0f},//Bottom Right
+    
+    //Right Face
+    
+    //Left Face
+};
+
+
+
 
 GLuint VBO;
 
@@ -35,22 +82,31 @@ void render()
     //Make the new VBO active. Repeat here as a sanity check(may have changed since initialisation)
     glBindBuffer(GL_ARRAY_BUFFER, VBO);
     
-    //Establish its 3 coordinates per vertex with zero stride(space between elements) in array and contain floating point numbers
-    glVertexPointer(3,GL_FLOAT,0,NULL);
+    //The 3 pointer is now filled out, the pipeline needs to know the size of each vertex
+    glVertexPointer(3,GL_FLOAT,sizeof(Vertex),NULL);
+    //The last parameter basically says that the colours start 3 floats into each element of the array
+    glColorPointer(4,GL_FLOAT,sizeof(Vertex),(void**)(3*sizeof(float)));
     
-    //Establish array contains vertices(not normals, colours, texture coords etc)
+    //Establish array contains vertices and colours
     glEnableClientState(GL_VERTEX_ARRAY);
+    glEnableClientState(GL_COLOR_ARRAY);
+    
+    
     
     //Switch to ModelView
     glMatrixMode(GL_MODELVIEW);
     //Reset using the Identity Matrix
     glLoadIdentity();
-    //Translate
-    glTranslatef(0.0f,0.0f,-6.0f);
-    //Actually draw the triangle, giving the number of vertices provided
-    glDrawArrays(GL_TRIANGLES,0,sizeof(verts)/(3*sizeof(float)));
     
-
+    gluLookAt(0.0,0.0,6.0,0.0,0.0,-1.0f,0.0,1.0,0.0);
+    
+    //Transla
+    glTranslatef(1.0f,0.0f,-6.0f);
+    //Actually draw the triangle, giving the number of vertices provided
+     
+    glDrawArrays(GL_TRIANGLES,0,sizeof(verts)/sizeof(Vertex));
+    
+    /*
     //Swith to ModelView
     glMatrixMode( GL_MODELVIEW );
     //Reset using the Indentity Matrix
@@ -60,7 +116,8 @@ void render()
     //Everyting after this will be drawn at -5.0f on z-axis
     //until reset by glLoadIdentity!
     glTranslatef( 0.0f, 0.0f, -5.0f );
-
+     */
+/*
     //Begin drawing triangles
     glBegin( GL_TRIANGLES );
       glColor3f(1.0f, 0.0f, 0.0f); //Colour of the vertices
@@ -68,7 +125,7 @@ void render()
       glVertex3f( -1.0f, -1.0f, 0.0f ); // Bottom Left
       glVertex3f(  1.0f, -1.0f, 0.0f ); // Bottom Right
     glEnd( );
-
+*/
 }
 
 void cleanUp()
