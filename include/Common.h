@@ -8,6 +8,10 @@
 #include <vector>
 #include <memory>
 <<<<<<< HEAD:include/Common.h
+<<<<<<< HEAD:include/Common.h
+=======
+#include <map>
+>>>>>>> BigBearGCU/master:Game/include/Common.h
 =======
 #include <map>
 >>>>>>> BigBearGCU/master:Game/include/Common.h

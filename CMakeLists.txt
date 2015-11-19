@@ -3,7 +3,11 @@ project (GP2BaseCode)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
 <<<<<<< HEAD
+<<<<<<< HEAD
 list( APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS}")
+=======
+list(APPEND CMAKE_CXX_FLAGS "-std=c++0x -g ${CMAKE_CXX_FLAGS}")
+>>>>>>> BigBearGCU/master
 =======
 list(APPEND CMAKE_CXX_FLAGS "-std=c++0x -g ${CMAKE_CXX_FLAGS}")
 >>>>>>> BigBearGCU/master

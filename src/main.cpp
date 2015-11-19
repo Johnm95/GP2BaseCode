@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 #include "Common.h"
 #include "Graphics.h"
 #include "Vertices.h"
@@ -185,9 +186,13 @@ void renderScene()
 
 	glDrawElements(GL_TRIANGLES, gameObject->getNumberOfIndices(), GL_UNSIGNED_INT, 0);
 }
+=======
+#include "MyGame.h"
+>>>>>>> BigBearGCU/master
 
 void renderPostQuad()
 {
+<<<<<<< HEAD
 	glBindFramebuffer(GL_FRAMEBUFFER, 0);
 	//Set the clear colour(background)
 	glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
@@ -224,6 +229,8 @@ void render()
 
 int main(int argc, char * arg[])
 {
+=======
+>>>>>>> BigBearGCU/master
 	unique_ptr<MyGame> pGame(new MyGame);
 
 	pGame->init();
