@@ -77,6 +77,7 @@ void update()
 {
 }
 
+GLuint shaderProgram=0;
 
 void initScene()
 {
@@ -93,6 +94,28 @@ void initScene()
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER,EBO);
     //Copy index data to EBO
     glBufferData(GL_ELEMENT_ARRAY_BUFFER,sizeof(indices),indices,GL_STATIC_DRAW);
+    
+    
+    GLuint vertexShaderProgram=0;
+    string vsPath = ASSET_PATH + SHADER_PATH + "/simpleVS.glsl";
+    vertexShaderProgram = loadShaderFromFile(vsPath,VERTEX_SHADER);
+    checkForCompilerErrors(vertexShaderProgram);
+    
+    GLuint fragmentShaderProgram = 0;
+    string fsPath = ASSET_PATH + SHADER_PATH + "/simpleFS.glsl";
+    fragmentShaderProgram = loadShaderFromFile(fsPath, FRAGMENT_SHADER);
+    checkForCompilerErrors(fragmentShaderProgram);
+    
+    shaderProgram = glCreateProgram();
+    glAttachShader(shaderProgram,vertexShaderProgram);
+    glAttachShader(shaderProgram,fragmentShaderProgram);
+    glLinkProgram(shaderProgram);
+    checkForLinkErrors(shaderProgram);
+    
+    //now we can delete the VS & FS Programs
+    glDeleteShader(vertexShaderProgram);
+    glDeleteShader(fragmentShaderProgram);
+    
 }
 
 
@@ -105,56 +128,8 @@ void render()
     //clear the colour and depth buffer
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
     
-    //Make the new VBO active. Repeat here as a sanity check(may have changed since initialisation)
-    glBindBuffer(GL_ARRAY_BUFFER, VBO);
-    glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
-    
-    //The 3 pointer is now filled out, the pipeline needs to know the size of each vertex
-    glVertexPointer(3,GL_FLOAT,sizeof(Vertex),NULL);
-    //The last parameter basically says that the colours start 3 floats into each element of the array
-    glColorPointer(4,GL_FLOAT,sizeof(Vertex),(void**)(3*sizeof(float)));
-    
-    //Establish array contains vertices and colours
-    glEnableClientState(GL_VERTEX_ARRAY);
-    glEnableClientState(GL_COLOR_ARRAY);
-    
-    
-    
-    //Switch to ModelView
-    glMatrixMode(GL_MODELVIEW);
-    //Reset using the Identity Matrix
-    glLoadIdentity();
-    
-    gluLookAt(0.0,0.0,6.0,0.0,0.0,-1.0f,0.0,1.0,0.0);
-    
-    //Transla
-    glTranslatef(1.0f,0.0f,-6.0f);
-    //Actually draw the triangle, giving the number of vertices provided
-     
-    glDrawArrays(GL_TRIANGLES,0,sizeof(verts)/sizeof(Vertex));
     glDrawElements(GL_TRIANGLES,sizeof(indices)/sizeof(GLuint),GL_UNSIGNED_INT,0);
-    
-    /*
-    //Swith to ModelView
-    glMatrixMode( GL_MODELVIEW );
-    //Reset using the Indentity Matrix
-    glLoadIdentity( );
-    //Do translation, push the next bit of drawing 'back' 5 units
-    //on z-zaxis
-    //Everyting after this will be drawn at -5.0f on z-axis
-    //until reset by glLoadIdentity!
-    glTranslatef( 0.0f, 0.0f, -5.0f );
-     */
-/*
-    //Begin drawing triangles
-    glBegin( GL_TRIANGLES );
-      glColor3f(1.0f, 0.0f, 0.0f); //Colour of the vertices
-      glVertex3f(  0.0f,  1.0f, 0.0f ); // Top
-      glVertex3f( -1.0f, -1.0f, 0.0f ); // Bottom Left
-      glVertex3f(  1.0f, -1.0f, 0.0f ); // Bottom Right
-    glEnd( );
-*/
-}
+    }
 
 void cleanUp()
 {
@@ -174,6 +149,11 @@ int main(int argc, char * arg[])
 
         return -1;
     }
+    
+    //Ask for version 4.2 of OpenGL
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION,4);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION,2);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,SDL_GL_CONTEXT_PROFILE_CORE);
 
     //Create a window
     SDL_Window * window = SDL_CreateWindow(

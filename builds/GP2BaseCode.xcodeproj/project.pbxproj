@@ -34,6 +34,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		393C36DE1BFE7B00001910B2 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 393C36DD1BFE7B00001910B2 /* Shader.cpp */; settings = {ASSET_TAGS = (); }; };
 		5B076C66F7394FA6B09C26CD /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 7E387CA5C61C4234B4101146 /* Graphics.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 		8FF263B139004A80BAE85536 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 202ED303F71340FB9D6E390B /* main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
 /* End PBXBuildFile section */
@@ -64,7 +65,11 @@
 
 /* Begin PBXFileReference section */
 		202ED303F71340FB9D6E390B /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
-		397749721BFBAC4800396660 /* Vertex.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = Vertex.h; path = include/Vertex.h; sourceTree = SOURCE_ROOT; };
+		393C36DB1BFE79CC001910B2 /* Vertex.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = Vertex.h; path = include/Vertex.h; sourceTree = "<group>"; };
+		393C36DC1BFE7A57001910B2 /* Shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; name = Shader.h; path = include/Shader.h; sourceTree = SOURCE_ROOT; };
+		393C36DD1BFE7B00001910B2 /* Shader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Shader.cpp; path = src/Shader.cpp; sourceTree = SOURCE_ROOT; };
+		393C36E01BFE8331001910B2 /* simpleVS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simpleVS.glsl; path = assets/shaders/simpleVS.glsl; sourceTree = "<group>"; };
+		393C36E11BFE839D001910B2 /* simpleFS.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = simpleFS.glsl; path = assets/shaders/simpleFS.glsl; sourceTree = "<group>"; };
 		6900F6A589124B3696ABF7C1 /* GP2BaseCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = GP2BaseCode; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E387CA5C61C4234B4101146 /* Graphics.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Graphics.cpp; path = src/Graphics.cpp; sourceTree = SOURCE_ROOT; };
 		A4C6981756F24A999F4DCE76 /* Graphics.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Graphics.h; path = include/Graphics.h; sourceTree = SOURCE_ROOT; };
@@ -97,9 +102,10 @@
 		36151BC102B64C6C8D24E7AF /* Header Files */ = {
 			isa = PBXGroup;
 			children = (
+				393C36DB1BFE79CC001910B2 /* Vertex.h */,
 				BCC2A0D063FE4E51A99B1AE6 /* Common.h */,
 				A4C6981756F24A999F4DCE76 /* Graphics.h */,
-				397749721BFBAC4800396660 /* Vertex.h */,
+				393C36DC1BFE7A57001910B2 /* Shader.h */,
 			);
 			name = "Header Files";
 			sourceTree = "<group>";
@@ -157,6 +163,9 @@
 			children = (
 				7E387CA5C61C4234B4101146 /* Graphics.cpp */,
 				202ED303F71340FB9D6E390B /* main.cpp */,
+				393C36DD1BFE7B00001910B2 /* Shader.cpp */,
+				393C36E01BFE8331001910B2 /* simpleVS.glsl */,
+				393C36E11BFE839D001910B2 /* simpleFS.glsl */,
 			);
 			name = "Source Files";
 			sourceTree = "<group>";
@@ -246,6 +255,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				5B076C66F7394FA6B09C26CD /* Graphics.cpp in Sources */,
+				393C36DE1BFE7B00001910B2 /* Shader.cpp in Sources */,
 				8FF263B139004A80BAE85536 /* main.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
