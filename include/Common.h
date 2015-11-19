@@ -7,6 +7,10 @@
 #include <fstream>
 #include <vector>
 #include <memory>
+<<<<<<< HEAD:include/Common.h
+=======
+#include <map>
+>>>>>>> BigBearGCU/master:Game/include/Common.h
 
 using namespace std;
 
@@ -23,6 +27,7 @@ using namespace glm;
 
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
+#include <glm/gtx/string_cast.hpp>
 
 const string ASSET_PATH = "assets";
 const string SHADER_PATH = "/shaders";
