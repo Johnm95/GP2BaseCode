@@ -1,6 +1,7 @@
 #include "Common.h"
 #include "Graphics.h"
 #include "Vertex.h"
+#include "Shader.h"
 /*
 //This creates a multicoloured TRIANGLE
 Vertex verts[] ={ {0.0f,1.0f,0.0f, //x,y,z
