@@ -1,0 +1,3 @@
+/Users/johnmcmillan/GP2BaseCode/builds/CMakeFiles/ALL_BUILD.dir
+/Users/johnmcmillan/GP2BaseCode/builds/CMakeFiles/GP2BaseCode.dir
+/Users/johnmcmillan/GP2BaseCode/builds/CMakeFiles/ZERO_CHECK.dir
