@@ -1,0 +1,883 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXAggregateTarget section */
+		0306ABFE956A42F9B66CE1BB /* ALL_BUILD */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 69F97C55840A443C89EB8761 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */;
+			buildPhases = (
+				29C9C60A27F4428585A7034B /* CMake Rules */,
+			);
+			dependencies = (
+				0029EE851B8E414391DC8750 /* PBXTargetDependency */,
+				8B772D87FC4C48409709FC07 /* PBXTargetDependency */,
+			);
+			name = ALL_BUILD;
+			productName = ALL_BUILD;
+		};
+		F543D17E59964D298CF886C2 /* ZERO_CHECK */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = CA006925EB9947A98B13CB6A /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */;
+			buildPhases = (
+				611490758EB0466FBBDC172B /* CMake Rules */,
+			);
+			dependencies = (
+			);
+			name = ZERO_CHECK;
+			productName = ZERO_CHECK;
+		};
+/* End PBXAggregateTarget section */
+
+/* Begin PBXBuildFile section */
+		5EC73E5C71A844688B4CF204 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 13FC61EA9ABD4D998E6000A9 /* Shader.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		6AB8B0C300404F9DB89345C9 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 1952AB570129492A9375FBBE /* Texture.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		7D857E41131B45CDA01A0429 /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5C01E8DD855349748C270265 /* main.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		82D6F83F997E4EABA22F6E49 /* GameObject.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 952590603B104FCF94E0BA03 /* GameObject.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		C607CC31AA43404291972739 /* FBXLoader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = E1C743BBE6314DFAB941483B /* FBXLoader.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		D429ADFF016D42A299C137B2 /* FileSystem.cpp in Sources */ = {isa = PBXBuildFile; fileRef = D4C0DBB33A5643BB92E70DA7 /* FileSystem.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+		FB87BAEA832A471490B89D21 /* Graphics.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6AF8502D543A4A23A9BF1778 /* Graphics.cpp */; settings = {COMPILER_FLAGS = ""; }; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		5B78851EFE99494CAC25C68A /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FDB4BDFE8641F8B50F92DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 79B19C9F7DF04E288CF16502;
+			remoteInfo = GP2BaseCode;
+		};
+		B3C75F5550FD4E0AAFC258D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FDB4BDFE8641F8B50F92DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F543D17E59964D298CF886C2;
+			remoteInfo = ZERO_CHECK;
+		};
+		D631F4F6902A43748D6035D5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 18FDB4BDFE8641F8B50F92DE /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = F543D17E59964D298CF886C2;
+			remoteInfo = ZERO_CHECK;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		011A2F285A1043C1A5DE0BCE /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		06A62B783389477EAB9AAACC /* GameObject.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = GameObject.h; path = include/GameObject.h; sourceTree = SOURCE_ROOT; };
+		07513995258F4A229E6A1CC9 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		13FC61EA9ABD4D998E6000A9 /* Shader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Shader.cpp; path = src/Shader.cpp; sourceTree = SOURCE_ROOT; };
+		1952AB570129492A9375FBBE /* Texture.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Texture.cpp; path = src/Texture.cpp; sourceTree = SOURCE_ROOT; };
+		203EA29C33DB4392926819DB /* FBXLoader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FBXLoader.h; path = include/FBXLoader.h; sourceTree = SOURCE_ROOT; };
+		215AFEE6D882486888467636 /* Vertices.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Vertices.h; path = include/Vertices.h; sourceTree = SOURCE_ROOT; };
+		4A614BB4525E40148D389CC2 /* FileSystem.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = FileSystem.h; path = include/FileSystem.h; sourceTree = SOURCE_ROOT; };
+		58E51220E78741EDB56574D2 /* Shader.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Shader.h; path = include/Shader.h; sourceTree = SOURCE_ROOT; };
+		5C01E8DD855349748C270265 /* main.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = main.cpp; path = src/main.cpp; sourceTree = SOURCE_ROOT; };
+		5E8E9136B9DA47D785D9E85B /* Mesh.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Mesh.h; path = include/Mesh.h; sourceTree = SOURCE_ROOT; };
+		642FCB1ACA884AA79AC1C3CE /* GP2BaseCode */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; path = GP2BaseCode; sourceTree = BUILT_PRODUCTS_DIR; };
+		64F618C56A71495EA39E0426 /* Texture.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Texture.h; path = include/Texture.h; sourceTree = SOURCE_ROOT; };
+		664447F669A44EE0AFEC8AD4 /* Cube.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Cube.h; path = include/Cube.h; sourceTree = SOURCE_ROOT; };
+		6AF8502D543A4A23A9BF1778 /* Graphics.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = Graphics.cpp; path = src/Graphics.cpp; sourceTree = SOURCE_ROOT; };
+		6C9EA7F0B12F4463A231ABFA /* Common.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Common.h; path = include/Common.h; sourceTree = SOURCE_ROOT; };
+		6FE87110D1B44409AF3FC0BE /* Graphics.h */ = {isa = PBXFileReference; explicitFileType = sourcecode.c.h; fileEncoding = 4; name = Graphics.h; path = include/Graphics.h; sourceTree = SOURCE_ROOT; };
+		952590603B104FCF94E0BA03 /* GameObject.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = GameObject.cpp; path = src/GameObject.cpp; sourceTree = SOURCE_ROOT; };
+		964ACD0E04224649BDB09560 /* CMakeLists.txt */ = {isa = PBXFileReference; explicitFileType = sourcecode.text; fileEncoding = 4; lastKnownFileType = text; path = CMakeLists.txt; sourceTree = SOURCE_ROOT; };
+		D4C0DBB33A5643BB92E70DA7 /* FileSystem.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FileSystem.cpp; path = src/FileSystem.cpp; sourceTree = SOURCE_ROOT; };
+		E1C743BBE6314DFAB941483B /* FBXLoader.cpp */ = {isa = PBXFileReference; explicitFileType = sourcecode.cpp.cpp; fileEncoding = 4; name = FBXLoader.cpp; path = src/FBXLoader.cpp; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		0298AE3892DE4DB8AFD68FB4 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		4A798AB262EC4E0AA032AA46 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
+		60C919C1A3AC49FC8CEDF52A /* GP2BaseCode */ = {
+			isa = PBXGroup;
+			children = (
+				DD612B3092E14613B92EE8BD /* Source Files */,
+				B5329EB9535C4B7CA9B70BB6 /* Header Files */,
+				964ACD0E04224649BDB09560 /* CMakeLists.txt */,
+			);
+			name = GP2BaseCode;
+			sourceTree = "<group>";
+		};
+		6DDBC50151EF47ED804D6715 /* ALL_BUILD */ = {
+			isa = PBXGroup;
+			children = (
+				A314EAF1FE7A42EC9D7B6AE9 /* CMake Rules */,
+				011A2F285A1043C1A5DE0BCE /* CMakeLists.txt */,
+			);
+			name = ALL_BUILD;
+			sourceTree = "<group>";
+		};
+		7C09579F90FF4A628318D344 /* ZERO_CHECK */ = {
+			isa = PBXGroup;
+			children = (
+				0298AE3892DE4DB8AFD68FB4 /* CMake Rules */,
+				07513995258F4A229E6A1CC9 /* CMakeLists.txt */,
+			);
+			name = ZERO_CHECK;
+			sourceTree = "<group>";
+		};
+		96948086931B4A239B44CEFC /* Sources */ = {
+			isa = PBXGroup;
+			children = (
+				6DDBC50151EF47ED804D6715 /* ALL_BUILD */,
+				60C919C1A3AC49FC8CEDF52A /* GP2BaseCode */,
+				7C09579F90FF4A628318D344 /* ZERO_CHECK */,
+			);
+			name = Sources;
+			sourceTree = "<group>";
+		};
+		A314EAF1FE7A42EC9D7B6AE9 /* CMake Rules */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "CMake Rules";
+			sourceTree = "<group>";
+		};
+		B5329EB9535C4B7CA9B70BB6 /* Header Files */ = {
+			isa = PBXGroup;
+			children = (
+				6C9EA7F0B12F4463A231ABFA /* Common.h */,
+				664447F669A44EE0AFEC8AD4 /* Cube.h */,
+				203EA29C33DB4392926819DB /* FBXLoader.h */,
+				4A614BB4525E40148D389CC2 /* FileSystem.h */,
+				06A62B783389477EAB9AAACC /* GameObject.h */,
+				6FE87110D1B44409AF3FC0BE /* Graphics.h */,
+				5E8E9136B9DA47D785D9E85B /* Mesh.h */,
+				58E51220E78741EDB56574D2 /* Shader.h */,
+				64F618C56A71495EA39E0426 /* Texture.h */,
+				215AFEE6D882486888467636 /* Vertices.h */,
+			);
+			name = "Header Files";
+			sourceTree = "<group>";
+		};
+		C0FDB788C30E4A8FB15D13D3 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				642FCB1ACA884AA79AC1C3CE /* GP2BaseCode */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DD612B3092E14613B92EE8BD /* Source Files */ = {
+			isa = PBXGroup;
+			children = (
+				E1C743BBE6314DFAB941483B /* FBXLoader.cpp */,
+				D4C0DBB33A5643BB92E70DA7 /* FileSystem.cpp */,
+				952590603B104FCF94E0BA03 /* GameObject.cpp */,
+				6AF8502D543A4A23A9BF1778 /* Graphics.cpp */,
+				13FC61EA9ABD4D998E6000A9 /* Shader.cpp */,
+				1952AB570129492A9375FBBE /* Texture.cpp */,
+				5C01E8DD855349748C270265 /* main.cpp */,
+			);
+			name = "Source Files";
+			sourceTree = "<group>";
+		};
+		FDBC0AB514A5449F8ECF40B5 = {
+			isa = PBXGroup;
+			children = (
+				96948086931B4A239B44CEFC /* Sources */,
+				4A798AB262EC4E0AA032AA46 /* Resources */,
+				C0FDB788C30E4A8FB15D13D3 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		79B19C9F7DF04E288CF16502 /* GP2BaseCode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = B52F91585920445AAD5FD0CE /* Build configuration list for PBXNativeTarget "GP2BaseCode" */;
+			buildPhases = (
+				7CE75961DD5B4F0DAD8549FC /* CMake PreBuild Rules */,
+				43BD1314893449D1A5907DD6 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				AB8B8D7802A54E7CBE4429CE /* PBXTargetDependency */,
+			);
+			name = GP2BaseCode;
+			productName = GP2BaseCode;
+			productReference = 642FCB1ACA884AA79AC1C3CE /* GP2BaseCode */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		18FDB4BDFE8641F8B50F92DE /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+			};
+			buildConfigurationList = 20E5738C7C06443CB9258A4C /* Build configuration list for PBXProject "GP2BaseCode" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = FDBC0AB514A5449F8ECF40B5;
+			projectDirPath = ../;
+			projectRoot = "";
+			targets = (
+				0306ABFE956A42F9B66CE1BB /* ALL_BUILD */,
+				79B19C9F7DF04E288CF16502 /* GP2BaseCode */,
+				F543D17E59964D298CF886C2 /* ZERO_CHECK */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		29C9C60A27F4428585A7034B /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/johnmcmillan/GP2BaseCode/builds -f /Users/johnmcmillan/GP2BaseCode/builds/CMakeScripts/ALL_BUILD_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		611490758EB0466FBBDC172B /* CMake Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/johnmcmillan/GP2BaseCode/builds -f /Users/johnmcmillan/GP2BaseCode/builds/CMakeScripts/ZERO_CHECK_cmakeRulesBuildPhase.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+		7CE75961DD5B4F0DAD8549FC /* CMake PreBuild Rules */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			name = "CMake PreBuild Rules";
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "make -C /Users/johnmcmillan/GP2BaseCode/builds -f /Users/johnmcmillan/GP2BaseCode/builds/CMakeScripts/GP2BaseCode_preBuildCommands.make$CONFIGURATION all";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		43BD1314893449D1A5907DD6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C607CC31AA43404291972739 /* FBXLoader.cpp in Sources */,
+				D429ADFF016D42A299C137B2 /* FileSystem.cpp in Sources */,
+				82D6F83F997E4EABA22F6E49 /* GameObject.cpp in Sources */,
+				FB87BAEA832A471490B89D21 /* Graphics.cpp in Sources */,
+				5EC73E5C71A844688B4CF204 /* Shader.cpp in Sources */,
+				6AB8B0C300404F9DB89345C9 /* Texture.cpp in Sources */,
+				7D857E41131B45CDA01A0429 /* main.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		0029EE851B8E414391DC8750 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 79B19C9F7DF04E288CF16502 /* GP2BaseCode */;
+			targetProxy = 5B78851EFE99494CAC25C68A /* PBXContainerItemProxy */;
+		};
+		8B772D87FC4C48409709FC07 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F543D17E59964D298CF886C2 /* ZERO_CHECK */;
+			targetProxy = D631F4F6902A43748D6035D5 /* PBXContainerItemProxy */;
+		};
+		AB8B8D7802A54E7CBE4429CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = F543D17E59964D298CF886C2 /* ZERO_CHECK */;
+			targetProxy = B3C75F5550FD4E0AAFC258D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00AB2B2B36B44E0EBDD47B49 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds/build;
+			};
+			name = Release;
+		};
+		0AA09E0924A94E76AA8121C3 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		47848127645F43F8AA45880D /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds/build;
+			};
+			name = RelWithDebInfo;
+		};
+		4E69746483FC4377A008D4D7 /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = s;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-std=c++0x",
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/opt/local/lib/libSDL2main.a,
+					/opt/local/lib/libSDL2.dylib,
+					"-framework",
+					Cocoa,
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					/opt/local/lib/libGLEW.dylib,
+					/opt/local/lib/libSDL2_image.dylib,
+					/opt/local/lib/libSDL2_ttf.dylib,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.a\"",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GP2BaseCode;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		4F54A983BA0344CDB47838AB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		650AF5FA2B1F4C6A8F2E620A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		69B905F529B447CA85B2C071 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = "-std=c++0x      ";
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/opt/local/lib/libSDL2main.a,
+					/opt/local/lib/libSDL2.dylib,
+					"-framework",
+					Cocoa,
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					/opt/local/lib/libGLEW.dylib,
+					/opt/local/lib/libSDL2_image.dylib,
+					/opt/local/lib/libSDL2_ttf.dylib,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.a\"",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GP2BaseCode;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		8FA820D26B0E434EA90ED642 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		92DA197992E44DD3994D10DC /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+		948357E68A4444C29FB8D9C0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds/build;
+			};
+			name = Debug;
+		};
+		9DF2EA5BD6824C72BAB3A5EC /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk;
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds/build;
+			};
+			name = MinSizeRel;
+		};
+		A57F8555C9CB4A8C8201FE72 /* RelWithDebInfo */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 2;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-std=c++0x",
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/opt/local/lib/libSDL2main.a,
+					/opt/local/lib/libSDL2.dylib,
+					"-framework",
+					Cocoa,
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					/opt/local/lib/libGLEW.dylib,
+					/opt/local/lib/libSDL2_image.dylib,
+					/opt/local/lib/libSDL2_ttf.dylib,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.a\"",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GP2BaseCode;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = RelWithDebInfo;
+		};
+		AA36874A9DF24288BF44CC1A /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ZERO_CHECK;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		C1C256F676B24FFFB78F6D64 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				EXECUTABLE_PREFIX = "";
+				EXECUTABLE_SUFFIX = "";
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_OPTIMIZATION_LEVEL = 3;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CPLUSPLUSFLAGS = (
+					"-std=c++0x",
+					"-DNDEBUG",
+				);
+				OTHER_LDFLAGS = (
+					"-Wl,-search_paths_first",
+					"-Wl,-headerpad_max_install_names",
+					/opt/local/lib/libSDL2main.a,
+					/opt/local/lib/libSDL2.dylib,
+					"-framework",
+					Cocoa,
+					"-framework",
+					AGL,
+					"-framework",
+					OpenGL,
+					/opt/local/lib/libGLEW.dylib,
+					/opt/local/lib/libSDL2_image.dylib,
+					/opt/local/lib/libSDL2_ttf.dylib,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.a\"",
+				);
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = GP2BaseCode;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Release;
+		};
+		C3C627022B8D447482E04506 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = Debug;
+		};
+		F93705CD3B2247659E992F2E /* MinSizeRel */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COMBINE_HIDPI_IMAGES = YES;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_GENERATE_TEST_COVERAGE_FILES = YES;
+				GCC_INLINES_ARE_PRIVATE_EXTERN = NO;
+				GCC_INSTRUMENT_PROGRAM_FLOW_ARCS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = "'CMAKE_INTDIR=\"$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)\"'";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					/Users/johnmcmillan/GP2BaseCode/GP2BaseCode,
+					/Users/johnmcmillan/GP2BaseCode/include,
+					/opt/local/include/SDL2,
+					/opt/local/include,
+					"\"/Applications/Autodesk/FBX SDK/2015.1/include\"",
+				);
+				INSTALL_PATH = "";
+				OTHER_LDFLAGS = " ";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = ALL_BUILD;
+				SECTORDER_FLAGS = "";
+				SYMROOT = /Users/johnmcmillan/GP2BaseCode/builds;
+				USE_HEADERMAP = NO;
+				WARNING_CFLAGS = (
+					"-Wmost",
+					"-Wno-four-char-constants",
+					"-Wno-unknown-pragmas",
+					"$(inherited)",
+				);
+			};
+			name = MinSizeRel;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		20E5738C7C06443CB9258A4C /* Build configuration list for PBXProject "GP2BaseCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				948357E68A4444C29FB8D9C0 /* Debug */,
+				00AB2B2B36B44E0EBDD47B49 /* Release */,
+				9DF2EA5BD6824C72BAB3A5EC /* MinSizeRel */,
+				47848127645F43F8AA45880D /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		69F97C55840A443C89EB8761 /* Build configuration list for PBXAggregateTarget "ALL_BUILD" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C3C627022B8D447482E04506 /* Debug */,
+				4F54A983BA0344CDB47838AB /* Release */,
+				F93705CD3B2247659E992F2E /* MinSizeRel */,
+				0AA09E0924A94E76AA8121C3 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		B52F91585920445AAD5FD0CE /* Build configuration list for PBXNativeTarget "GP2BaseCode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				69B905F529B447CA85B2C071 /* Debug */,
+				C1C256F676B24FFFB78F6D64 /* Release */,
+				4E69746483FC4377A008D4D7 /* MinSizeRel */,
+				A57F8555C9CB4A8C8201FE72 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		CA006925EB9947A98B13CB6A /* Build configuration list for PBXAggregateTarget "ZERO_CHECK" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				650AF5FA2B1F4C6A8F2E620A /* Debug */,
+				AA36874A9DF24288BF44CC1A /* Release */,
+				92DA197992E44DD3994D10DC /* MinSizeRel */,
+				8FA820D26B0E434EA90ED642 /* RelWithDebInfo */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 18FDB4BDFE8641F8B50F92DE /* Project object */;
+}

@@ -10,11 +10,44 @@ public:
 	GameObject();
 	~GameObject();
 
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 	void update();
 
 	void createBuffers(Vertex * pVerts, int numVerts, int *pIndices, int numIndices);
 	void loadShader(const string& vsFilename, const string& fsFilename);
 
+    
+    
+    GameObject*getParentGameObject(){
+        return m_ParentGameObject;
+    }
+    
+    int getNumberOfChildren(){
+        return m_ChildGameObject.size();
+    }
+    
+   void addChild(shared_ptr<GameObject> object){
+       
+       m_ChildGameObject.push_back(object);
+    }
+    
+    int getChild(){
+        
+    }
+    
+    
 	void setPosition(const vec3& position)
 	{
 		m_Position = position;
@@ -91,6 +124,8 @@ private:
 	vec4 m_DiffuseMaterial;
 	vec4 m_SpecularMaterial;
 	float m_SpecularPower;
+    GameObject * m_ParentGameObject;
+    vector<shared_ptr<GameObject>> m_ChildGameObject;
 };
 
 #endif
