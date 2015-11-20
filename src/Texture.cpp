@@ -25,7 +25,7 @@ GLuint loadTextureFromFile(const string& filename)
     }
 
 
-GLuint convertSDLSurfaceToTexture(SDL_Surface*surface)
+GLuint converetSDLSurfaceToTexture(SDL_Surface *surface)
 {
     GLuint textureID = 0;
     GLuint nOfColors = surface->format->BytesPerPixel;
