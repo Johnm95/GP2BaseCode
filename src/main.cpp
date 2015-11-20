@@ -227,6 +227,14 @@ int main(int argc, char * arg[])
         render();
         //Call swap so that our GL back buffer is displayed
         SDL_GL_SwapWindow(window);
+        
+        int imageInitFlags = IMG_INIT_JPG | IMG_INIT_PNG;
+        int returnInitFlags = IMG_Init(imageInitFlags);
+        if (((returnInitFlags)&(imageInitFlags))!=imageInitFlags) {
+            cout<<"ERROR SDL_Image Init" << IMG_GetError()<<endl;
+        }
+        
+        
 
     }
 
@@ -234,6 +242,7 @@ int main(int argc, char * arg[])
     cleanUp();
     SDL_GL_DeleteContext(glcontext);
     SDL_DestroyWindow(window);
+    IMG_Quit();
     SDL_Quit();
 
     return 0;
