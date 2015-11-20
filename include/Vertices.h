@@ -5,8 +5,11 @@
 
 struct Vertex
 {
-  vec3 position;
-  vec4 colour;
+    vec3 position;
+    vec4 colour;
+    vec2 texCoords;
 };
+
+
 
 #endif
