@@ -2,7 +2,7 @@ cmake_minimum_required (VERSION 3.2)
 project (GP2BaseCode)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_LIST_DIR}/cmake")
-list(APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} -ftest-coverage")
+list(APPEND CMAKE_CXX_FLAGS "-std=c++0x ${CMAKE_CXX_FLAGS} ")
 
 find_package(OpenGL REQUIRED)
 find_package(SDL2 REQUIRED)
@@ -23,7 +23,7 @@ add_custom_command(TARGET GP2BaseCode  POST_BUILD
 endif (MSVC)
 
 
-add_custom_command(TARGET GP2BaseCode POST_BUILD
-COMMAND ${CMAKE_COMMAND} - E copy_directory
-${CMAKE_SOURCE_DIR}/assets
-$<TARGET_FILE_DIR:GP2BaseCode>/assets)
+#add_custom_command(TARGET GP2BaseCode POST_BUILD
+#COMMAND ${CMAKE_COMMAND} - E copy_directory
+#${CMAKE_SOURCE_DIR}/assets
+#$<TARGET_FILE_DIR:GP2BaseCode>/assets)
