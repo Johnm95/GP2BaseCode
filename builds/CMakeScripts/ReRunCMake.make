@@ -29,5 +29,6 @@
 /Users/johnmcmillan/GP2BaseCode/builds/CMakeFiles/3.4.0-rc1/CMakeSystem.cmake\
 /Users/johnmcmillan/GP2BaseCode/cmake/FindGLM.cmake\
 /Users/johnmcmillan/GP2BaseCode/cmake/FindSDL2.cmake\
-/Users/johnmcmillan/GP2BaseCode/cmake/FindSDL2_Image.cmake
+/Users/johnmcmillan/GP2BaseCode/cmake/FindSDL2_Image.cmake\
+/Users/johnmcmillan/GP2BaseCode/cmake/FindSDL2_ttf.cmake
 	/Applications/CMake.app/Contents/bin/cmake -H/Users/johnmcmillan/GP2BaseCode -B/Users/johnmcmillan/GP2BaseCode/builds

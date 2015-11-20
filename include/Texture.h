@@ -13,5 +13,7 @@
 
 GLuint loadTextureFromFile(const string& filename);
 
+GLuint loadTextureFromFont(const string& fontFilename, int pointSize, const string& text);
+
 GLuint converetSDLSurfaceToTexture(SDL_Surface*surface);
 #endif /* Texture_h */

@@ -208,6 +208,15 @@ SDL2_INCLUDE_DIR:PATH=/opt/local/include/SDL2
 //Where the SDL2 Library can be found
 SDL2_LIBRARY:STRING=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa
 
+//Path to a file.
+SDL2_TTF_INCLUDE_DIR:PATH=/opt/local/include/SDL2
+
+//Path to a library.
+SDL2_TTF_LIBRARY_DEBUG:FILEPATH=SDL2_TTF_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+SDL2_TTF_LIBRARY_RELEASE:FILEPATH=/opt/local/lib/libSDL2_ttf.dylib
+
 
 ########################
 # INTERNAL cache entries
@@ -341,6 +350,8 @@ FIND_PACKAGE_MESSAGE_DETAILS_GLM:INTERNAL=[/opt/local/include][v()]
 FIND_PACKAGE_MESSAGE_DETAILS_OpenGL:INTERNAL=[/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework][/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework][v()]
 //Details about finding SDL2
 FIND_PACKAGE_MESSAGE_DETAILS_SDL2:INTERNAL=[/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa][/opt/local/include/SDL2][v()]
+//Details about finding SDL2_TTF
+FIND_PACKAGE_MESSAGE_DETAILS_SDL2_TTF:INTERNAL=[/opt/local/lib/libSDL2_ttf.dylib][/opt/local/include/SDL2][v()]
 //ADVANCED property for variable: GLEW_INCLUDE_DIR
 GLEW_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: GLEW_LIBRARY
@@ -355,7 +366,13 @@ OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 PROJECT_GP2BaseCode_GUID_CMAKE:INTERNAL=A2E2280575FC468B9FDBD030
-SDL2_LIBRARY_TEMP:INTERNAL=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
+SDL2_LIBRARY_TEMP:INTERNAL=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
+//ADVANCED property for variable: SDL2_TTF_INCLUDE_DIR
+SDL2_TTF_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDL2_TTF_LIBRARY_DEBUG
+SDL2_TTF_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: SDL2_TTF_LIBRARY_RELEASE
+SDL2_TTF_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 ZERO_CHECK_GUID_CMAKE:INTERNAL=A95FEAB3CB3F4BA3852CE2B6
 
