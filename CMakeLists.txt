@@ -11,7 +11,7 @@ find_package(GLM REQUIRED)
 find_package(SDL2_Image REQUIRED)
 find_package(SDL2_ttf REQUIRED)
 
-add_executable(GP2BaseCode src/main.cpp src/Graphics.cpp src/Shader.cpp src/Texture.cpp include/Common.h include/Graphics.h include/Shader.h include/Texture.h)
+add_executable(GP2BaseCode src/main.cpp src/Graphics.cpp src/Shader.cpp src/Texture.cpp include/Common.h include/Graphics.h include/Shader.h include/Texture.h include/Vertices.h)
 include_directories(GP2BaseCode include/ ${OPENGL_INCLUDE_DIRS} ${SDL2_INCLUDE_DIR} ${GLEW_INCLUDE_DIRS} ${GLM_INCLUDE_DIRS} ${SDL2IMAGE_INCLUDE_DIR} ${SDL2_TTF_INCLUDE_DIR} )
 # create the program
 target_link_libraries(GP2BaseCode ${SDL2_LIBRARY} ${OPENGL_LIBRARIES} ${GLEW_LIBRARIES} ${SDL2IMAGE_LIBRARY} ${SDL2_TTF_LIBRARY} )
