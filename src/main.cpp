@@ -112,14 +112,17 @@ void initScene()
 
   glEnableVertexAttribArray(1);
   glVertexAttribPointer(1, 4, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(sizeof(vec3)));
+    
+    glEnableVertexAttribArray(2);
+    glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void**)(sizeof(vec3) + sizeof(vec4)));
 
   GLuint vertexShaderProgram=0;
-  string vsPath = ASSET_PATH + SHADER_PATH + "/simpleColourVS.glsl";
+  string vsPath = ASSET_PATH + SHADER_PATH + "/TextureVS.glsl";
   vertexShaderProgram = loadShaderFromFile(vsPath, VERTEX_SHADER);
   checkForCompilerErrors(vertexShaderProgram);
 
   GLuint fragmentShaderProgram=0;
-  string fsPath = ASSET_PATH + SHADER_PATH + "/simpleColourFS.glsl";
+  string fsPath = ASSET_PATH + SHADER_PATH + "/TextureFS.glsl";
   fragmentShaderProgram = loadShaderFromFile(fsPath, FRAGMENT_SHADER);
   checkForCompilerErrors(fragmentShaderProgram);
 
