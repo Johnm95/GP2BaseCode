@@ -77,6 +77,9 @@ GLuint fontTexture;
 
 void initScene()
 {
+    string fontPath = ASSET_PATH + FONT_PATH + "/OratorStd.otf";
+    fontTexture = loadTextureFromFont(fontPath,18,"Hello World");
+    
     //load texture and bind
     string texturePath = ASSET_PATH + TEXTURE_PATH + "/texture.png";
     textureMap = loadTextureFromFile(texturePath);
@@ -89,7 +92,12 @@ void initScene()
     glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_MIRRORED_REPEAT);
     glGenerateMipmap(GL_TEXTURE_2D);
     
-    
+    glBindTexture(GL_TEXTURE_2D, fontTexture);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,
+                    GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MAG_FILTER,GL_LINEAR);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_S,GL_MIRRORED_REPEAT);
+    glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_WRAP_T,GL_MIRRORED_REPEAT);
     
     
   //Generate Vertex Array
@@ -169,13 +177,17 @@ void render()
     glClearColor( 0.0f, 0.0f, 0.0f, 0.0f );
     //clear the colour and depth buffer
     glClear( GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT );
-
+    
     glUseProgram(shaderProgram);
+    
+    glEnable(GL_BLEND);
+    glBlendFunc(GL_SRC_ALPHA,GL_ONE_MINUS_SRC_ALPHA);
 
     GLint MVPLocation = glGetUniformLocation(shaderProgram, "MVP");
     GLint texture0Location = glGetUniformLocation(shaderProgram,"texture0");
     glActiveTexture(GL_TEXTURE0);
-    glBindTexture(GL_TEXTURE_2D,textureMap);
+    //glBindTexture(GL_TEXTURE_2D,textureMap);
+    glBindTexture(GL_TEXTURE_2D,fontTexture);
     glUniformMatrix4fv(MVPLocation, 1, GL_FALSE, glm::value_ptr(MVPMatrix));
     glUniform1i(texture0Location,0);
 
@@ -197,6 +209,17 @@ int main(int argc, char * arg[])
 
         return -1;
 	}
+    
+    int imageInitFlags = IMG_INIT_JPG | IMG_INIT_PNG;
+    int returnInitFlags = IMG_Init(imageInitFlags);
+    if (((returnInitFlags)&(imageInitFlags))!=imageInitFlags) {
+        cout<<"ERROR SDL_Image Init" << IMG_GetError()<<endl;
+    }
+    
+    if (TTF_Init() == -1) {
+        std::cout<<"ERROR TTF_Init:"<<TTF_GetError();
+        
+    }
 
 	//Request opengl 4.1 context, Core Context
 	SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK,SDL_GL_CONTEXT_PROFILE_CORE);
@@ -256,17 +279,6 @@ int main(int argc, char * arg[])
         render();
         //Call swap so that our GL back buffer is displayed
         SDL_GL_SwapWindow(window);
-        
-        int imageInitFlags = IMG_INIT_JPG | IMG_INIT_PNG;
-        int returnInitFlags = IMG_Init(imageInitFlags);
-        if (((returnInitFlags)&(imageInitFlags))!=imageInitFlags) {
-            cout<<"ERROR SDL_Image Init" << IMG_GetError()<<endl;
-        }
-        
-        if (TTF_Init() == -1) {
-            std::cout<<"ERROR TTF_Init:"<<TTF_GetError();
-            
-        }
         
 
     }
