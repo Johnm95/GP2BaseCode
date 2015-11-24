@@ -176,7 +176,7 @@ FBX_DIR:PATH=/Applications/Autodesk/FBX SDK/2015.1/include
 FBX_INCLUDE_DIR:PATH=/Applications/Autodesk/FBX SDK/2015.1/include
 
 //Path to a library.
-FBX_LIBRARY:FILEPATH=/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.dylib
+FBX_LIBRARY:FILEPATH=/Applications/Autodesk/FBX SDK/2015.1/lib/clang/release/libfbxsdk.a
 
 //Path to a library.
 FBX_LIBRARY_DEBUG:FILEPATH=/Applications/Autodesk/FBX SDK/2015.1/lib/clang/debug/libfbxsdk.dylib
@@ -378,7 +378,7 @@ OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 PROJECT_GP2BaseCode_GUID_CMAKE:INTERNAL=A2E2280575FC468B9FDBD030
-SDL2_LIBRARY_TEMP:INTERNAL=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
+SDL2_LIBRARY_TEMP:INTERNAL=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
 //ADVANCED property for variable: SDL2_TTF_INCLUDE_DIR
 SDL2_TTF_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_TTF_LIBRARY_DEBUG
