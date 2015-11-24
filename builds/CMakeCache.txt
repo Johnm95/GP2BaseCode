@@ -169,6 +169,9 @@ CMAKE_STRIP:FILEPATH=/Applications/Xcode.app/Contents/Developer/Toolchains/Xcode
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=OFF
 
+//The directory containing a CMake configuration file for FBX.
+FBX_DIR:PATH=FBX_DIR-NOTFOUND
+
 //Path to a file.
 GLEW_INCLUDE_DIR:PATH=/opt/local/include
 
@@ -366,7 +369,7 @@ OPENGL_gl_LIBRARY-ADVANCED:INTERNAL=1
 OPENGL_glu_LIBRARY-ADVANCED:INTERNAL=1
 //Stored Xcode object GUID
 PROJECT_GP2BaseCode_GUID_CMAKE:INTERNAL=A2E2280575FC468B9FDBD030
-SDL2_LIBRARY_TEMP:INTERNAL=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
+SDL2_LIBRARY_TEMP:INTERNAL=/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2main.a;/opt/local/lib/libSDL2.dylib;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa;-framework Cocoa
 //ADVANCED property for variable: SDL2_TTF_INCLUDE_DIR
 SDL2_TTF_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: SDL2_TTF_LIBRARY_DEBUG
