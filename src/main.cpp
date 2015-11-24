@@ -3,7 +3,10 @@
 #include "Vertices.h"
 #include "Shader.h"
 #include "Texture.h"
+#include "Mesh.h"
 #include "FileSystem.h"
+#include "FBXLoader.h"
+
 
 Vertex verts[]={
 //Front
@@ -72,12 +75,18 @@ GLuint EBO;
 GLuint VAO;
 GLuint shaderProgram;
 
+MeshData currentMesh;
+
 GLuint textureMap;
 
 GLuint fontTexture; 
 
 void initScene()
 {
+    
+    string modelPath = ASSET_PATH + MODEL_PATH + "/armoredrecon.fbx";
+    loadFBXFromFile(modelPath, &currentMesh);
+    
     string fontPath = ASSET_PATH + FONT_PATH + "/OratorStd.otf";
     fontTexture = loadTextureFromFont(fontPath,18,"Hello World");
     
@@ -106,14 +115,18 @@ void initScene()
   glBindVertexArray( VAO );
   glGenBuffers(1, &VBO);
   glBindBuffer(GL_ARRAY_BUFFER, VBO);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
+  //glBufferData(GL_ARRAY_BUFFER, sizeof(verts), verts, GL_STATIC_DRAW);
+    
+    glBufferData(GL_ARRAY_BUFFER, currentMesh.getNumVerts()*sizeof(Vertex),&currentMesh.indices[0], GL_STATIC_DRAW);
 
   //create buffer
   glGenBuffers(1, &EBO);
   //Make the EBO active
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, EBO);
   //Copy Index data to the EBO
-  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+  //glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+    glBufferData(GL_ELEMENT_ARRAY_BUFFER, currentMesh.getNumIndices()*sizeof(int),&currentMesh.indices[0],GL_STATIC_DRAW);
+    
 
   //Tell the shader that 0 is the position element
   glEnableVertexAttribArray(0);
@@ -194,7 +207,9 @@ void render()
 
     glBindVertexArray( VAO );
 
-    glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint),GL_UNSIGNED_INT,0);
+    //glDrawElements(GL_TRIANGLES, sizeof(indices)/sizeof(GLuint),GL_UNSIGNED_INT,0);
+    
+    glDrawElements(GL_TRIANGLES, currentMesh.getNumIndices(), GL_UNSIGNED_INT,0);
 }
 
 int main(int argc, char * arg[])
